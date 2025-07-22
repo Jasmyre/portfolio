@@ -1,5 +1,6 @@
 
 import { HydrateClient } from "@/trpc/server";
+import { ModeToggle } from '../components/mode-toggle';
 
 export default async function Home() {
   // const hello = await api.post.hello({ text: "from tRPC Test" });
@@ -10,7 +11,8 @@ export default async function Home() {
 
   return (
     <HydrateClient>
-      <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c] text-white">
+      <main className="flex min-h-screen flex-col items-center justify-center">
+        <ModeToggle />
         {/* {JSON.stringify((await api.ai.test({text: "Tell me a joke."})).choices[0]?.message, null, 2)} */}
         Hello world!
       </main>
