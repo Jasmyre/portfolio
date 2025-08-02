@@ -336,13 +336,17 @@ export function NavigationBar({
                 onClick={toggleTheme}
                 className="cursor-pointer opacity-70 transition-all duration-200 hover:opacity-100"
               >
-                {mounted && (
+                {mounted ? (
                   <>
                     {theme === "dark" ? (
                       <Sun className="h-4 w-4 scale-100 rotate-0 transition-all duration-300" />
                     ) : (
                       <Moon className="h-4 w-4 scale-100 rotate-0 transition-all duration-300" />
                     )}
+                  </>
+                ) : (
+                  <>
+                    <Sun className="h-4 w-4 scale-100 rotate-0 transition-all duration-300" />
                   </>
                 )}
                 <span className="sr-only">Toggle theme</span>
@@ -486,13 +490,17 @@ export function NavigationBar({
               onClick={toggleTheme}
               className="cursor-pointer opacity-70 transition-all duration-200 hover:opacity-100"
             >
-              {mounted && (
+              {mounted ? (
                 <>
                   {theme === "dark" ? (
                     <Sun className="h-4 w-4 scale-100 rotate-0 transition-all duration-300" />
                   ) : (
                     <Moon className="h-4 w-4 scale-100 rotate-0 transition-all duration-300" />
                   )}
+                </>
+              ) : (
+                <>
+                  <Sun className="h-4 w-4 scale-100 rotate-0 transition-all duration-300" />
                 </>
               )}
               <span className="sr-only">Toggle theme</span>

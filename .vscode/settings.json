@@ -5,17 +5,31 @@
     "clinerules",
     "deepseek",
     "Deskop",
+    "ictquest",
+    "Laravel",
+    "Licence",
     "logprobs",
+    "Manliclic",
     "Mmpjn",
     "neondb",
     "netcat",
     "Noto",
+    "oklch",
     "OPENROUTER",
     "pkey",
     "pooler",
+    "Replit",
     "Segoe",
+    "Squeezy",
     "sslmode",
+    "Tailark",
     "typesafety",
     "vercel"
-  ]
+  ],
+  "editor.quickSuggestions": {
+    "strings": "on"
+  },
+  "files.associations": {
+    "*.css": "tailwindcss"
+  }
 }
