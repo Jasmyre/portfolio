@@ -34,14 +34,20 @@ export default function HeroSection() {
               },
             },
           }}
-          className="absolute bottom-10 animate-bounce"
+          className="absolute bottom-10 cursor-pointer"
         >
           <Button
             size={"icon"}
             variant={"outline"}
-            className="rounded-full opacity-75"
+            className="z-50 cursor-pointer rounded-full opacity-75 animate-bounce"
+            asChild
           >
-            <ArrowDown />
+            <Link
+              href={"#about"}
+              className="cursor-pointer rounded-full opacity-75"
+            >
+              <ArrowDown />
+            </Link>
           </Button>
         </AnimatedGroup>
         <div
@@ -61,7 +67,7 @@ export default function HeroSection() {
                   preset="fade-in-blur"
                   speedSegment={0.3}
                   as="h1"
-                  className="text-4xl sm:text-6xl text-balance md:text-7xl lg:text-6xl xl:text-[5.25rem]"
+                  className="text-4xl text-balance sm:text-6xl md:text-7xl lg:text-6xl xl:text-[5.25rem]"
                 >
                   No tech skills? No problem. I&apos;ll build the site for you.
                 </TextEffect>
@@ -71,7 +77,7 @@ export default function HeroSection() {
                   speedSegment={0.275}
                   delay={0.5}
                   as="p"
-                  className="text-muted-foreground mx-auto mt-8 max-w-2xl text-lg  md:text-pretty"
+                  className="text-muted-foreground mx-auto mt-8 max-w-2xl text-lg md:text-pretty"
                 >
                   You don’t need to know how websites work—I’ll handle the
                   details and build something that fits exactly what you need
