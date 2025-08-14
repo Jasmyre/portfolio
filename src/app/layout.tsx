@@ -26,8 +26,8 @@ export default function RootLayout({
         <TRPCReactProvider>
           <ThemeProvider
             attribute="class"
-            defaultTheme="light"
-            // enableSystem
+            defaultTheme="dark"
+            enableSystem
             disableTransitionOnChange
           >
             {children}
