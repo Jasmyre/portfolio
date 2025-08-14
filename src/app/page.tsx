@@ -28,7 +28,6 @@ export default async function HomePage() {
     <HydrateClient>
       <div className="relative">
         <NavigationBar navItems={getNavItems()} enableBlock={false} title="Jasmyre" />
-        {/* <HeroHeader /> */}
         <main className="min-h-[100vh] w-full">
           <HeroSection />
           <ContentSection />

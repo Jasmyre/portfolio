@@ -7,7 +7,6 @@ import Link from "next/link";
 export default function HeroSection() {
   return (
     <>
-      {/* <HeroHeader /> */}
       <main className="relative flex min-h-[90vh] items-center justify-center overflow-hidden lg:min-h-screen">
         <AnimatedGroup
           variants={{
@@ -134,57 +133,6 @@ export default function HeroSection() {
                 </AnimatedGroup>
               </div>
             </div>
-
-            {/* <AnimatedGroup
-              variants={{
-                container: {
-                  visible: {
-                    transition: {
-                      staggerChildren: 0.05,
-                      delayChildren: 0.75,
-                    },
-                  },
-                },
-                item: {
-                  hidden: {
-                    opacity: 0,
-                    y: 20,
-                  },
-                  visible: {
-                    opacity: 1,
-                    y: 0,
-                    transition: {
-                      type: "spring",
-                      bounce: 0.3,
-                      duration: 2,
-                    },
-                  },
-                },
-              }}
-            >
-              <div className="relative mt-8 -mr-56 overflow-hidden px-2 sm:mt-12 sm:mr-0 md:mt-20">
-                <div
-                  aria-hidden
-                  className="to-background absolute inset-0 z-10 bg-linear-to-b from-transparent from-35%"
-                />
-                <div className="ring-background bg-background relative mx-auto max-w-6xl overflow-hidden rounded-2xl border p-4 shadow-lg ring-1 inset-shadow-2xs shadow-zinc-950/15 dark:inset-shadow-white/20">
-                  <Image
-                    className="bg-background relative hidden aspect-15/8 rounded-2xl dark:block"
-                    src="/ictquest.png"
-                    alt="app screen"
-                    width="2700"
-                    height="1540"
-                  />
-                  <Image
-                    className="border-border/25 relative z-2 aspect-15/8 rounded-2xl border dark:hidden"
-                    src="/mail2-light.png"
-                    alt="app screen"
-                    width="2700"
-                    height="1540"
-                  />
-                </div>
-              </div>
-            </AnimatedGroup> */}
           </div>
         </section>
       </main>
