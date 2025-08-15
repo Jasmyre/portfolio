@@ -109,7 +109,7 @@ export default function HeroSection() {
                       },
                     },
                   }}
-                  className="mt-12 flex flex-col items-center justify-center gap-2 md:flex-row"
+                  className="mt-12 flex flex-col items-center justify-center gap-2 md:flex-row w-full"
                 >
                   <div
                     key={1}
@@ -120,7 +120,7 @@ export default function HeroSection() {
                       size="lg"
                       className="rounded-xl px-5 text-base max-md:w-full"
                     >
-                      <Link href="#link">
+                      <Link href="#portfolio">
                         <span className="text-nowrap">View portfolio</span>
                       </Link>
                     </Button>
@@ -132,7 +132,7 @@ export default function HeroSection() {
                     variant="outline"
                     className="h-10.5 rounded-xl px-5 max-md:w-full"
                   >
-                    <Link href="#link">
+                    <Link href="#contact">
                       <span className="text-nowrap">Contact me</span>
                     </Link>
                   </Button>

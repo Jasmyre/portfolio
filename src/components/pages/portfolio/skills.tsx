@@ -13,7 +13,7 @@ import Image from "next/image";
 
 export default function SkillsSection() {
   return (
-    <section>
+    <section id="technologies">
       <div className="bg-muted dark:bg-background py-24 md:py-32">
         <div className="mx-auto max-w-screen px-6">
           <div className="mx-auto mb-12 max-w-lg space-y-6 text-center">
