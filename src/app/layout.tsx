@@ -5,6 +5,7 @@ import { Geist } from "next/font/google";
 
 import { ThemeProvider } from "@/components/theme-provider";
 import { TRPCReactProvider } from "@/trpc/react";
+import { env } from "@/env";
 
 export const metadata: Metadata = {
   title: "Jasmyre Portfolio",
@@ -49,6 +50,9 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+  },
+  other: {
+    "google-site-verification": env.GOOGLE_SITE_VERIFICATION,
   },
 };
 

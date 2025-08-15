@@ -13,6 +13,7 @@ export const env = createEnv({
       .default("development"),
     OPEN_ROUTER_API_KEY: z.string(),
     BASE_URL: z.string(),
+    GOOGLE_SITE_VERIFICATION: z.string(),
   },
 
   /**
@@ -32,7 +33,8 @@ export const env = createEnv({
     DATABASE_URL: process.env.DATABASE_URL,
     NODE_ENV: process.env.NODE_ENV,
     OPEN_ROUTER_API_KEY: process.env.OPEN_ROUTER_API_KEY,
-    BASE_URL: process.env.BASE_URL
+    BASE_URL: process.env.BASE_URL,
+    GOOGLE_SITE_VERIFICATION: process.env.GOOGLE_SITE_VERIFICATION,
     // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
   },
   /**
