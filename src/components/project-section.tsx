@@ -530,16 +530,6 @@ export function ProjectsSection() {
   const filteredProjects =
     filter === "all" ? projects : projects.filter((p) => p.category === filter);
 
-  const container = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
   return (
     <section className="py-16 md:py-32" id="portfolio">
       <div className="mx-auto max-w-7xl space-y-8 px-6 md:space-y-16">
