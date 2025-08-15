@@ -7,7 +7,6 @@ import Link from "next/link";
 export default function HeroSection() {
   return (
     <>
-      {/* <HeroHeader /> */}
       <main className="relative flex min-h-[90vh] items-center justify-center overflow-hidden lg:min-h-screen">
         <AnimatedGroup
           variants={{
@@ -35,14 +34,20 @@ export default function HeroSection() {
               },
             },
           }}
-          className="absolute bottom-10 animate-bounce"
+          className="absolute bottom-10 cursor-pointer"
         >
           <Button
             size={"icon"}
             variant={"outline"}
-            className="rounded-full opacity-75"
+            className="z-50 cursor-pointer rounded-full opacity-75 animate-bounce"
+            asChild
           >
-            <ArrowDown />
+            <Link
+              href={"#about"}
+              className="cursor-pointer rounded-full opacity-75"
+            >
+              <ArrowDown />
+            </Link>
           </Button>
         </AnimatedGroup>
         <div
@@ -62,7 +67,7 @@ export default function HeroSection() {
                   preset="fade-in-blur"
                   speedSegment={0.3}
                   as="h1"
-                  className="text-4xl sm:text-6xl text-balance md:text-7xl lg:text-6xl xl:text-[5.25rem]"
+                  className="text-4xl text-balance sm:text-6xl md:text-7xl lg:text-6xl xl:text-[5.25rem]"
                 >
                   No tech skills? No problem. I&apos;ll build the site for you.
                 </TextEffect>
@@ -72,7 +77,7 @@ export default function HeroSection() {
                   speedSegment={0.275}
                   delay={0.5}
                   as="p"
-                  className="text-muted-foreground mx-auto mt-8 max-w-2xl text-lg  md:text-pretty"
+                  className="text-muted-foreground mx-auto mt-8 max-w-2xl text-lg md:text-pretty"
                 >
                   You don’t need to know how websites work—I’ll handle the
                   details and build something that fits exactly what you need
@@ -104,7 +109,7 @@ export default function HeroSection() {
                       },
                     },
                   }}
-                  className="mt-12 flex flex-col items-center justify-center gap-2 md:flex-row"
+                  className="mt-12 flex flex-col items-center justify-center gap-2 md:flex-row w-full"
                 >
                   <div
                     key={1}
@@ -115,7 +120,7 @@ export default function HeroSection() {
                       size="lg"
                       className="rounded-xl px-5 text-base max-md:w-full"
                     >
-                      <Link href="#link">
+                      <Link href="#portfolio">
                         <span className="text-nowrap">View portfolio</span>
                       </Link>
                     </Button>
@@ -127,64 +132,13 @@ export default function HeroSection() {
                     variant="outline"
                     className="h-10.5 rounded-xl px-5 max-md:w-full"
                   >
-                    <Link href="#link">
+                    <Link href="#contact">
                       <span className="text-nowrap">Contact me</span>
                     </Link>
                   </Button>
                 </AnimatedGroup>
               </div>
             </div>
-
-            {/* <AnimatedGroup
-              variants={{
-                container: {
-                  visible: {
-                    transition: {
-                      staggerChildren: 0.05,
-                      delayChildren: 0.75,
-                    },
-                  },
-                },
-                item: {
-                  hidden: {
-                    opacity: 0,
-                    y: 20,
-                  },
-                  visible: {
-                    opacity: 1,
-                    y: 0,
-                    transition: {
-                      type: "spring",
-                      bounce: 0.3,
-                      duration: 2,
-                    },
-                  },
-                },
-              }}
-            >
-              <div className="relative mt-8 -mr-56 overflow-hidden px-2 sm:mt-12 sm:mr-0 md:mt-20">
-                <div
-                  aria-hidden
-                  className="to-background absolute inset-0 z-10 bg-linear-to-b from-transparent from-35%"
-                />
-                <div className="ring-background bg-background relative mx-auto max-w-6xl overflow-hidden rounded-2xl border p-4 shadow-lg ring-1 inset-shadow-2xs shadow-zinc-950/15 dark:inset-shadow-white/20">
-                  <Image
-                    className="bg-background relative hidden aspect-15/8 rounded-2xl dark:block"
-                    src="/ictquest.png"
-                    alt="app screen"
-                    width="2700"
-                    height="1540"
-                  />
-                  <Image
-                    className="border-border/25 relative z-2 aspect-15/8 rounded-2xl border dark:hidden"
-                    src="/mail2-light.png"
-                    alt="app screen"
-                    width="2700"
-                    height="1540"
-                  />
-                </div>
-              </div>
-            </AnimatedGroup> */}
           </div>
         </section>
       </main>

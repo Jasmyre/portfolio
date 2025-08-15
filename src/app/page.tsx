@@ -1,21 +1,17 @@
 import { type NavItem } from "@/components/navigation-bar";
 import { HydrateClient } from "@/trpc/server";
 import {
-  BarChart3,
-  FileText,
   Home,
   Package,
   Settings,
-  ShoppingCart,
-  User,
-  Users,
+  Users
 } from "lucide-react";
 
+import ContentSection from '@/components/content-1';
 import FooterSection from "@/components/footer";
 import HeroSection from "@/components/hero-section";
 import { NavigationBar } from "@/components/navigation-bar";
-import ContentSection from '@/components/content-1';
-import SkillsSection from '@/components/pages/portfolio/skills';
+import { ProjectsSection } from '../components/project-section';
 
 export default async function HomePage() {
   // const hello = await api.post.hello({ text: "from tRPC Test" });
@@ -28,11 +24,11 @@ export default async function HomePage() {
     <HydrateClient>
       <div className="relative">
         <NavigationBar navItems={getNavItems()} enableBlock={false} title="Jasmyre" />
-        {/* <HeroHeader /> */}
-        <main className="min-h-[100vh] w-full">
+        <main className="min-h-[100vh] w-full" id="home">
           <HeroSection />
           <ContentSection />
-          <SkillsSection />
+          {/* <SkillsSection /> */}
+          <ProjectsSection />
         </main>
         <FooterSection />
       </div>
@@ -43,55 +39,23 @@ export default async function HomePage() {
 function getNavItems() {
   const navItems: NavItem[] = [
     {
-      href: "/",
+      href: "#home",
       name: "Home",
       icon: <Home className="h-4 w-4" />,
     },
     {
-      name: "Products",
+      name: "About",
       icon: <Package className="h-4 w-4" />,
-      children: [
-        {
-          href: "/products/electronics",
-          name: "Electronics",
-          icon: <Package className="h-4 w-4" />,
-        },
-        {
-          href: "/products/clothing",
-          name: "Clothing",
-          icon: <ShoppingCart className="h-4 w-4" />,
-        },
-        {
-          href: "/products/books",
-          name: "Books",
-          icon: <FileText className="h-4 w-4" />,
-        },
-      ],
+      href: "#about"
     },
     {
-      name: "Company",
+      name: "Technologies",
       icon: <Users className="h-4 w-4" />,
-      children: [
-        {
-          href: "/about",
-          name: "About Us",
-          icon: <User className="h-4 w-4" />,
-        },
-        {
-          href: "/team",
-          name: "Our Team",
-          icon: <Users className="h-4 w-4" />,
-        },
-        {
-          href: "/careers",
-          name: "Careers",
-          icon: <BarChart3 className="h-4 w-4" />,
-        },
-      ],
+      href: "#technologies"
     },
     {
-      href: "/contact",
-      name: "Contact",
+      href: "#portfolio",
+      name: "Portfolio",
       icon: <Settings className="h-4 w-4" />,
     },
   ];
