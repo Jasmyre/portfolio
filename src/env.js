@@ -12,6 +12,7 @@ export const env = createEnv({
       .enum(["development", "test", "production"])
       .default("development"),
     OPEN_ROUTER_API_KEY: z.string(),
+    BASE_URL: z.string(),
   },
 
   /**
@@ -31,6 +32,7 @@ export const env = createEnv({
     DATABASE_URL: process.env.DATABASE_URL,
     NODE_ENV: process.env.NODE_ENV,
     OPEN_ROUTER_API_KEY: process.env.OPEN_ROUTER_API_KEY,
+    BASE_URL: process.env.BASE_URL
     // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
   },
   /**

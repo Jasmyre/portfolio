@@ -24,6 +24,15 @@ export const metadata: Metadata = {
     "andrei lanuza",
     "developer",
     "portfolio",
+    "portfolio design",
+    "design for portfolio",
+    "portfolio folder",
+    "work immersion portfolio",
+    "portfolio website",
+    "web developer portfolio",
+    "web developer portfolio examples",
+    "front end developer portfolio",
+    "sample web developer portfolio",
   ],
   openGraph: {
     type: "profile",
@@ -40,7 +49,7 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
-  }
+  },
 };
 
 const geist = Geist({
