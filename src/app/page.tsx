@@ -1,21 +1,16 @@
 import { type NavItem } from "@/components/navigation-bar";
 import { HydrateClient } from "@/trpc/server";
 import {
-  BarChart3,
-  FileText,
   Home,
   Package,
   Settings,
-  ShoppingCart,
-  User,
-  Users,
+  Users
 } from "lucide-react";
 
+import ContentSection from '@/components/content-1';
 import FooterSection from "@/components/footer";
 import HeroSection from "@/components/hero-section";
 import { NavigationBar } from "@/components/navigation-bar";
-import ContentSection from '@/components/content-1';
-import SkillsSection from '@/components/pages/portfolio/skills';
 import { ProjectsSection } from '../components/project-section';
 
 export default async function HomePage() {
