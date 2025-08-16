@@ -57,45 +57,6 @@ interface Project {
 
 const projects: Project[] = [
   {
-    id: "1",
-    title: "E-Commerce Platform",
-    description:
-      "Full-stack e-commerce solution with real-time inventory management",
-    longDescription:
-      "A comprehensive e-commerce platform built with Next.js and TypeScript, featuring real-time inventory management, secure payment processing, and advanced analytics dashboard. The platform handles thousands of products and provides seamless user experience across all devices.",
-    image: "/ictquest.png",
-    technologies: [
-      "Next.js",
-      "TypeScript",
-      "Prisma",
-      "PostgreSQL",
-      "Stripe",
-      "Redis",
-    ],
-    category: "Full Stack",
-    year: "2024",
-    status: "completed",
-    githubUrl: "https://github.com",
-    liveUrl: "https://example.com",
-    stats: {
-      users: 15000,
-      performance: 95,
-      codeQuality: 92,
-      features: 45,
-    },
-    highlights: [
-      "Real-time inventory synchronization",
-      "Advanced search with filters",
-      "Multi-vendor support",
-      "Mobile-first responsive design",
-    ],
-    challenges: [
-      "Optimizing database queries for large product catalogs",
-      "Implementing real-time updates without performance impact",
-      "Building scalable payment processing system",
-    ],
-  },
-  {
     id: "2",
     title: "AI-Powered Analytics Dashboard",
     description:
@@ -230,6 +191,7 @@ function ProjectCard({
         ease: "easeOut",
       }}
       viewport={{ once: true, margin: "-100px" }}
+      className="h-full"
     >
       <Card
         className={`group from-card to-card/80 hover:from-accent/20 hover:to-accent/10 h-full cursor-pointer overflow-hidden border-0 bg-gradient-to-br py-0 backdrop-blur-sm transition-all duration-300 ${className}`}
@@ -255,7 +217,7 @@ function ProjectCard({
             <ArrowUpRight className="h-5 w-5 text-white" />
           </div>
         </div>
-        <CardContent className="flex flex-col space-y-4 pb-5">
+        <CardContent className="flex flex-1 flex-col space-y-4 pb-5">
           <div className="flex-1 space-y-4">
             <div className="space-y-2">
               <div className="flex items-start justify-between">
@@ -474,8 +436,8 @@ function ProjectCard({
   if (isMobile) {
     return (
       <Drawer>
-        <DrawerTrigger asChild>
-          <div>
+        <DrawerTrigger role="button" asChild>
+          <div className="h-full">
             <ProjectContent />
           </div>
         </DrawerTrigger>
@@ -498,8 +460,8 @@ function ProjectCard({
 
   return (
     <Sheet>
-      <SheetTrigger asChild>
-        <div>
+      <SheetTrigger role="button" asChild>
+        <div className="h-full">
           <ProjectContent />
         </div>
       </SheetTrigger>
@@ -541,7 +503,7 @@ export function ProjectsSection() {
           </AnimatedGroup>
         </div>
 
-        <div className="flex flex-wrap items-center justify-center gap-3">
+        <div className="grid grid-cols-2 gap-3 md:flex md:flex-wrap md:items-center md:justify-center">
           {categories.map((category) => (
             <Button
               key={category}
@@ -557,7 +519,12 @@ export function ProjectsSection() {
 
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {filteredProjects.map((project, index) => (
-            <AnimatedGroup once={false} key={project.id} amount={0.1}>
+            <AnimatedGroup
+              once={false}
+              className="h-full"
+              key={project.id}
+              amount={0.1}
+            >
               <ProjectCard project={project} index={index} />
             </AnimatedGroup>
           ))}

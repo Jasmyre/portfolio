@@ -1,10 +1,10 @@
 import { type NavItem } from "@/components/navigation-bar";
 import { HydrateClient } from "@/trpc/server";
 import {
+  Briefcase,
   Home,
-  Package,
-  Settings,
-  Users
+  MessageSquareText,
+  User
 } from "lucide-react";
 
 import ContentSection from '@/components/content-1';
@@ -47,18 +47,18 @@ function getNavItems() {
     },
     {
       name: "About",
-      icon: <Package className="h-4 w-4" />,
-      href: "#about"
-    },
-    {
-      name: "Technologies",
-      icon: <Users className="h-4 w-4" />,
-      href: "#technologies"
+      icon: <User className="h-4 w-4" />,
+      href: "#about",
     },
     {
       href: "#portfolio",
       name: "Portfolio",
-      icon: <Settings className="h-4 w-4" />,
+      icon: <Briefcase className="h-4 w-4" />,
+    },
+    {
+      name: "Testimonial",
+      icon: <MessageSquareText className="h-4 w-4" />,
+      href: "#testimonial",
     },
   ];
 
