@@ -1,12 +1,13 @@
 import { createTRPCRouter, publicProcedure } from "../trpc";
-import { z } from "zod";
 import { TRPCError } from "@trpc/server";
+import { z } from "zod";
+import { env } from "@/env";
 
 import OpenAI from "openai";
 
 const openai = new OpenAI({
   baseURL: "https://openrouter.ai/api/v1",
-  apiKey: process.env.OPEN_ROUTER_API_KEY,
+  apiKey: env.OPEN_ROUTER_API_KEY,
   maxRetries: 5,
 });
 
