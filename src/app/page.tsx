@@ -12,6 +12,7 @@ import FooterSection from "@/components/footer";
 import HeroSection from "@/components/hero-section";
 import { NavigationBar } from "@/components/navigation-bar";
 import { ProjectsSection } from '../components/project-section';
+import WallOfLoveSection from '../components/testimonials';
 
 export default async function HomePage() {
   // const hello = await api.post.hello({ text: "from tRPC Test" });
@@ -29,6 +30,7 @@ export default async function HomePage() {
           <ContentSection />
           {/* <SkillsSection /> */}
           <ProjectsSection />
+          <WallOfLoveSection />
         </main>
         <FooterSection />
       </div>
