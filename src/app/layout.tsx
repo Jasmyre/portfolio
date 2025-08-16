@@ -10,18 +10,22 @@ import { env } from "@/env";
 export const metadata: Metadata = {
   title: "Jasmyre Portfolio",
   description:
-    "Full-Stack Web Developer | Jasmyre Andrei lanuza personal portfolio.",
+    "Full-Stack Web Developer | Jasmyre Andrei Lanuza personal portfolio.",
   icons: [{ rel: "icon", url: "/favicon.ico" }],
   category: "Portfolio",
   creator: "Jasmyre Andrei Lanuza",
   generator: "Next.js",
   keywords: [
     "jasmyre",
+    "jazmyre",
     "andrei",
     "lanuza",
+    "jazmyre andrei lanuza",
     "jasmyre andrei lanuza",
+    "jazmyre andrei",
     "jasmyre andrei",
     "jasmyre lanuza",
+    "jazmyre lanuza",
     "andrei lanuza",
     "developer",
     "portfolio",
@@ -39,7 +43,7 @@ export const metadata: Metadata = {
     type: "profile",
     url: "https://jazmyre.vercel.app",
     description:
-      "Full-Stack Web Developer | Jasmyre Andrei lanuza personal portfolio.",
+      "Full-Stack Web Developer | Jasmyre Andrei Lanuza personal portfolio.",
     siteName: "Jasmyre Portfolio",
     images: [""],
     title: "Jasmyre Portfolio",
