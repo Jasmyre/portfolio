@@ -30,6 +30,7 @@ import {
   Zap,
 } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 import { AnimatedGroup } from "@/components/ui/animated-group";
 
@@ -58,115 +59,84 @@ interface Project {
 const projects: Project[] = [
   {
     id: "2",
-    title: "AI-Powered Analytics Dashboard",
+    title: "ICTQuest",
     description:
-      "Machine learning dashboard for business intelligence and data visualization",
+      "ICTQuest is a website that offers interactive coding lessons in web development. It provides activities such as arranging components and multiple-choice quizzes to support hands-on learning.",
     longDescription:
-      "An intelligent analytics dashboard that leverages machine learning algorithms to provide actionable business insights. Features predictive analytics, automated reporting, and interactive data visualizations with real-time updates.",
-    image: "/ictquest.png",
+      "ICTQuest is an educational website designed to help learners practice coding concepts through interactive activities. The platform includes features like an arrange component exercise and multiple-choice quizzes that reinforce key topics. Its content is structured into groups, starting with HTML basics and moving toward more advanced elements such as forms and tables. The lessons are presented in a clear format that allows users to actively engage with the material rather than just reading about it. The overall focus is on making the learning process approachable and practical for beginners and intermediate learners.",
+    image: "/ictquest-banner.png",
     technologies: [
       "React",
-      "Python",
-      "TensorFlow",
-      "D3.js",
-      "FastAPI",
-      "MongoDB",
+      "Next.js",
+      "Typescript",
+      "Neon.tech",
+      "Prisma",
+      "OAuth",
+      "Tailwind",
+      "Shadcn ui",
     ],
-    category: "AI/ML",
-    year: "2024",
-    status: "in-progress",
-    githubUrl: "https://github.com",
+    category: "Web Application",
+    year: "2025",
+    status: "completed",
+    githubUrl: "https://github.com/Jasmyre/ictquest",
+    liveUrl: "https://ictquest.vercel.app",
     stats: {
       performance: 88,
       codeQuality: 94,
-      features: 32,
+      features: 6,
     },
     highlights: [
-      "Predictive analytics with 85% accuracy",
-      "Real-time data processing",
-      "Custom visualization components",
-      "Automated insight generation",
+      "Interactive lesson",
+      "Track progress",
+      "Socialize with other users",
+      "Save data with accounts",
     ],
-    challenges: [
-      "Processing large datasets efficiently",
-      "Creating intuitive data visualizations",
-      "Implementing real-time ML predictions",
-    ],
+    challenges: ["Limited development deadline"],
   },
   {
     id: "3",
-    title: "Mobile Fitness App",
-    description: "Cross-platform fitness tracking app with social features",
+    title: "Search4Movies",
+    description:
+      "Search4Movies is a website that provides basic details about films, including release year, genre, cast, and summaries.",
     longDescription:
-      "A comprehensive fitness tracking application built with React Native, featuring workout planning, progress tracking, social challenges, and integration with wearable devices. The app provides personalized workout recommendations based on user goals and performance.",
-    image: "/ictquest.png",
-    technologies: [
-      "React Native",
-      "Node.js",
-      "MongoDB",
-      "Socket.io",
-      "AWS",
-      "HealthKit",
-    ],
-    category: "Mobile",
-    year: "2023",
+      "Search4Movies is a website that lets users quickly look up movies and explore essential details about them. It provides information such as release year, genre, cast, and summaries in a simple, easy-to-read format. The site is designed for straightforward browsing without unnecessary clutter. Users can type in a movie title to find relevant results or discover related films through connected data. Its focus is on delivering clear movie information in an organized and accessible way.",
+    image: "/search4movies-banner.png",
+    technologies: ["React", "Next.js", "TMDB API", "Tailwind", "Javascript"],
+    category: "Web Application",
+    year: "2024",
     status: "completed",
-    githubUrl: "https://github.com",
-    liveUrl: "https://app-store.com",
+    githubUrl: "https://github.com/Jasmyre/search4movies",
+    liveUrl: "https://search4movies.vercel.app",
     stats: {
-      users: 8500,
+      users: 10,
       performance: 91,
       codeQuality: 89,
-      features: 28,
+      features: 1,
     },
-    highlights: [
-      "Wearable device integration",
-      "Social challenges and leaderboards",
-      "Personalized workout plans",
-      "Offline workout tracking",
-    ],
-    challenges: [
-      "Synchronizing data across devices",
-      "Optimizing battery usage",
-      "Creating engaging social features",
-    ],
+    highlights: ["Search for any movies"],
+    challenges: [],
   },
   {
     id: "4",
-    title: "DevOps Automation Suite",
+    title: "BlissBrew",
     description:
-      "Comprehensive CI/CD pipeline management and monitoring platform",
+      "BlissBrew is a static website design concept for a coffee shop. It presents a simple layout that highlights the shop’s atmosphere, menu, and offerings in a clean visual style.",
     longDescription:
-      "A powerful DevOps automation platform that streamlines deployment processes, monitors application health, and provides comprehensive analytics for development teams. Features automated testing, deployment rollbacks, and infrastructure monitoring.",
-    image: "/ictquest.png",
-    technologies: [
-      "Vue.js",
-      "Go",
-      "Docker",
-      "Kubernetes",
-      "Prometheus",
-      "Grafana",
-    ],
-    category: "DevOps",
+      "BlissBrew is a personal project showcasing a static single-page web design created for a coffee shop. The design focuses on a calm and inviting atmosphere, reflecting the cozy vibe of a café setting. It features sections for the shop’s menu, specials, and general information without complex functionality. The layout emphasizes clean typography, warm colors, and an organized structure to give visitors a smooth browsing experience. As a design project, its goal is to capture the essence of a coffee shop through visual presentation rather than interactive features.",
+    image: "/blissbrew-banner.png",
+    technologies: ["React", "Tailwind", "Next.js"],
+    category: "Web Design",
     year: "2023",
     status: "completed",
-    githubUrl: "https://github.com",
+    githubUrl: "https://github.com/Jasmyre/blissbrew",
+    liveUrl: "https://blissbrew.vercel.app",
     stats: {
       performance: 96,
       codeQuality: 95,
-      features: 38,
+      features: 0,
     },
-    highlights: [
-      "Zero-downtime deployments",
-      "Automated testing pipelines",
-      "Real-time monitoring alerts",
-      "Infrastructure as code",
-    ],
-    challenges: [
-      "Managing complex deployment workflows",
-      "Ensuring high availability",
-      "Creating intuitive monitoring dashboards",
-    ],
+    highlights: ["Specialized design vibe"],
+    challenges: [],
   },
 ];
 
@@ -418,15 +388,20 @@ function ProjectCard({
           <Button
             variant="outline"
             className="flex-1 cursor-pointer bg-transparent"
+            asChild
           >
-            <Github className="mr-2 h-4 w-4" />
-            View Code
+            <Link href={project.githubUrl} target="_blank">
+              <Github className="mr-2 h-4 w-4" />
+              View Code
+            </Link>
           </Button>
         )}
         {project.liveUrl && (
-          <Button className="flex-1 cursor-pointer">
-            <ExternalLink className="mr-2 h-4 w-4" />
-            Live Demo
+          <Button className="flex-1 cursor-pointer" asChild>
+            <Link href={project.liveUrl} target="_blank">
+              <ExternalLink className="mr-2 h-4 w-4" />
+              Live Demo
+            </Link>
           </Button>
         )}
       </div>
