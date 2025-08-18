@@ -57,9 +57,7 @@ import { cn } from "@/lib/utils";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import {
   Bell,
-  Calculator,
   ChevronRight,
-  FileText,
   GalleryVerticalEnd,
   Home,
   LogOut,
@@ -69,11 +67,11 @@ import {
   Search,
   Settings,
   Sun,
-  User,
+  User
 } from "lucide-react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { useTheme } from "next-themes";
+import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 import type { ReactNode } from "react";
 import { useEffect, useState } from "react";
 
@@ -95,12 +93,13 @@ export function NavigationBar({
   title = "Logo",
   enableBlock = true,
 }: AdaptiveNavProps) {
-  const isVisible = useScrollDirection();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const pathname = usePathname();
-  const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const { theme, setTheme } = useTheme();
+  const isVisible = useScrollDirection();
+  const pathname = usePathname();
+  const router = useRouter();
 
   // Ensure theme is mounted to avoid hydration mismatch
   useEffect(() => {
@@ -168,42 +167,20 @@ export function NavigationBar({
             />
             <CommandList className="max-h-[400px]">
               <CommandEmpty>No results found.</CommandEmpty>
-              <CommandGroup heading="Suggestions">
-                <CommandItem
-                  onSelect={() => setIsSearchOpen(false)}
-                  className="cursor-pointer opacity-70 transition-all duration-200 hover:opacity-100"
-                >
-                  <FileText className="mr-2 h-4 w-4" />
-                  <span>Search Documents</span>
-                </CommandItem>
-                <CommandItem
-                  onSelect={() => setIsSearchOpen(false)}
-                  className="cursor-pointer opacity-70 transition-all duration-200 hover:opacity-100"
-                >
-                  <Calculator className="mr-2 h-4 w-4" />
-                  <span>Calculator</span>
-                </CommandItem>
-              </CommandGroup>
               <CommandSeparator />
               <CommandGroup heading="Navigation">
                 {navItems.map((item, index) => (
                   <CommandItem
                     key={index}
-                    onSelect={() => setIsSearchOpen(false)}
+                    onSelect={() => {
+                      if (item.href) router.push(item.href);
+                      setIsSearchOpen(false);
+                    }}
                     className="cursor-pointer opacity-70 transition-all duration-200 hover:opacity-100"
                   >
                     {item.icon && <span className="mr-2">{item.icon}</span>}
                     <span>{item.name}</span>
-                    {item.href && (
-                      <CommandShortcut>
-                        <Link
-                          href={item.href}
-                          className="cursor-pointer text-xs"
-                        >
-                          Go
-                        </Link>
-                      </CommandShortcut>
-                    )}
+                    {item.href && <CommandShortcut>Go</CommandShortcut>}
                   </CommandItem>
                 ))}
               </CommandGroup>
