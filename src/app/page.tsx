@@ -3,6 +3,7 @@ import { HydrateClient } from "@/trpc/server";
 import {
   Briefcase,
   Home,
+  Mail,
   MessageSquareText,
   User
 } from "lucide-react";
@@ -13,6 +14,7 @@ import HeroSection from "@/components/hero-section";
 import { NavigationBar } from "@/components/navigation-bar";
 import { ProjectsSection } from '../components/project-section';
 import WallOfLoveSection from '../components/testimonials';
+import { ContactSection } from '../components/contact-section';
 
 export default async function HomePage() {
   // const hello = await api.post.hello({ text: "from tRPC Test" });
@@ -31,6 +33,7 @@ export default async function HomePage() {
           {/* <SkillsSection /> */}
           <ProjectsSection />
           <WallOfLoveSection />
+          <ContactSection />
         </main>
         <FooterSection />
       </div>
@@ -59,6 +62,11 @@ function getNavItems() {
       name: "Testimonial",
       icon: <MessageSquareText className="h-4 w-4" />,
       href: "#testimonial",
+    },
+    {
+      name: "Contact",
+      icon: <Mail className="h-4 w-4" />,
+      href: "#contact",
     },
   ];
 
