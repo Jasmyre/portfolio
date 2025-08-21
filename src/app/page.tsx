@@ -3,6 +3,7 @@ import { HydrateClient } from "@/trpc/server";
 import {
   Briefcase,
   Home,
+  Mail,
   MessageSquareText,
   User
 } from "lucide-react";
@@ -61,6 +62,11 @@ function getNavItems() {
       name: "Testimonial",
       icon: <MessageSquareText className="h-4 w-4" />,
       href: "#testimonial",
+    },
+    {
+      name: "Contact",
+      icon: <Mail className="h-4 w-4" />,
+      href: "#contact",
     },
   ];
 
