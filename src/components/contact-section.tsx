@@ -16,21 +16,7 @@ export function ContactSection() {
   return (
     <section className="py-16 md:py-32" id="contact">
       <div className="mx-auto max-w-7xl space-y-8 px-6 md:space-y-16">
-        <AnimatedGroup once={false} className="mb-16 text-center" amount={0.1}>
-          <AnimatedGroup once={false} className=" " amount={0.1}>
-            <h2 className="text-muted-foreground mb-4 text-center text-3xl font-semibold text-balance md:text-4xl">
-              Let&apos;s work together
-            </h2>
-          </AnimatedGroup>
-          <AnimatedGroup preset="slide">
-            <p className="text-muted-foreground mx-auto max-w-2xl text-xl leading-relaxed">
-              Ready to bring your ideas Online? I&apos;d love to hear about your
-              project and discuss how we can create something amazing together.
-            </p>
-          </AnimatedGroup>
-        </AnimatedGroup>
-
-        <div className="flex flex-col-reverse gap-12 lg:flex-row lg:gap-16">
+        <div className="flex flex-col-reverse items-center justify-center gap-12 lg:flex-row lg:gap-16">
           {/* Contact Information */}
           <AnimatedGroup
             once={false}
@@ -39,7 +25,7 @@ export function ContactSection() {
           >
             <div>
               <h3 className="text-foreground mb-6 font-sans text-2xl font-semibold">
-                Get In Touch
+                Let&apos;s work together
               </h3>
               <p className="text-muted-foreground mb-8 text-lg leading-relaxed">
                 Whether you have a project in mind, want to collaborate, or just
@@ -102,8 +88,8 @@ export function ContactSection() {
               className="hidden pt-8 lg:block"
               amount={0.1}
             >
-              <h4 className="text-foreground mb-4 text-lg font-medium">
-                Socials
+              <h4 className="text-muted-foreground mb-4 text-lg font-medium">
+                Links
               </h4>
               <div className="flex space-x-4">
                 {socialLinks.map((social) => (
