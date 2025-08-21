@@ -30,9 +30,13 @@ export function ContactSection() {
           </AnimatedGroup>
         </AnimatedGroup>
 
-        <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
+        <div className="flex flex-col-reverse gap-12 lg:flex-row lg:gap-16">
           {/* Contact Information */}
-          <AnimatedGroup once={false} className="space-y-8" amount={0.1}>
+          <AnimatedGroup
+            once={false}
+            className="flex-1/2 space-y-8"
+            amount={0.1}
+          >
             <div>
               <h3 className="text-foreground mb-6 font-sans text-2xl font-semibold">
                 Get In Touch
@@ -93,7 +97,11 @@ export function ContactSection() {
             </div>
 
             {/* Social Links */}
-            <AnimatedGroup once={false} className="pt-8" amount={0.1}>
+            <AnimatedGroup
+              once={false}
+              className="hidden pt-8 lg:block"
+              amount={0.1}
+            >
               <h4 className="text-foreground mb-4 text-lg font-medium">
                 Socials
               </h4>
@@ -119,7 +127,7 @@ export function ContactSection() {
           </AnimatedGroup>
 
           {/* Contact Form */}
-          <AnimatedGroup once={false} className=" " amount={0.1}>
+          <AnimatedGroup once={false} className="flex-1/2" amount={0.1}>
             <Card className="border-border bg-card">
               <CardContent className="p-8">
                 <h3 className="text-foreground mb-6 font-sans text-2xl font-semibold">
@@ -201,7 +209,7 @@ export function ContactSection() {
 
                   <Button
                     type="submit"
-                    className="cursor-pointer bg-primary hover:bg-primary/90 text-primary-foreground w-full py-3 text-base font-medium"
+                    className="bg-primary hover:bg-primary/90 text-primary-foreground w-full cursor-pointer py-3 text-base font-medium"
                   >
                     Send Message
                   </Button>
