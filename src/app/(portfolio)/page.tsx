@@ -12,9 +12,9 @@ import ContentSection from '@/components/content-1';
 import FooterSection from "@/components/footer";
 import HeroSection from "@/components/hero-section";
 import { NavigationBar } from "@/components/navigation-bar";
-import { ProjectsSection } from '../components/project-section';
-import WallOfLoveSection from '../components/testimonials';
-import { ContactSection } from '../components/contact-section';
+import { ProjectsSection } from '@/components/project-section';
+import WallOfLoveSection from '@/components/testimonials';
+import { ContactSection } from '@/components/contact-section';
 
 export default async function HomePage() {
   // const hello = await api.post.hello({ text: "from tRPC Test" });

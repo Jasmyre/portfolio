@@ -7,7 +7,7 @@ import Link from "next/link";
 export default function HeroSection() {
   return (
     <>
-      <main className="relative flex min-h-[90vh] items-center justify-center overflow-hidden lg:min-h-screen">
+      <section className="relative flex min-h-[90vh] items-center justify-center overflow-hidden lg:min-h-screen">
         <AnimatedGroup
           variants={{
             container: {
@@ -141,7 +141,7 @@ export default function HeroSection() {
             </div>
           </div>
         </section>
-      </main>
+      </section>
     </>
   );
 }

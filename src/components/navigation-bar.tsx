@@ -329,28 +329,6 @@ export function NavigationBar({
                 <span className="sr-only">Toggle theme</span>
               </Button>
 
-              {/* Quick Add Button */}
-              <Button
-                variant="ghost"
-                size="icon"
-                aria-label="Quick add"
-                className="cursor-pointer opacity-70 transition-all duration-200 hover:opacity-100"
-              >
-                <Plus className="h-4 w-4 transition-transform duration-200 hover:rotate-90" />
-                <span className="sr-only">Quick add</span>
-              </Button>
-
-              {/* Notifications */}
-              <Button
-                variant="ghost"
-                size="icon"
-                aria-label="Notifications"
-                className="cursor-pointer opacity-70 transition-all duration-200 hover:opacity-100"
-              >
-                <Bell className="h-4 w-4 transition-transform duration-200 hover:rotate-12" />
-                <span className="sr-only">Notifications</span>
-              </Button>
-
               {/* User Menu */}
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
@@ -482,16 +460,7 @@ export function NavigationBar({
               )}
               <span className="sr-only">Toggle theme</span>
             </Button>
-
-            <Button
-              variant="ghost"
-              size="icon"
-              aria-label="Notifications"
-              className="cursor-pointer opacity-70 transition-all duration-200 hover:opacity-100"
-            >
-              <Bell className="h-4 w-4 transition-transform duration-200 hover:rotate-12" />
-              <span className="sr-only">Notifications</span>
-            </Button>
+            
             <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
               <SheetTrigger asChild>
                 <Button

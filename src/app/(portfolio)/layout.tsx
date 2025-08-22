@@ -65,7 +65,7 @@ const geist = Geist({
   variable: "--font-geist-sans",
 });
 
-export default function RootLayout({
+export default function PortfolioLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (

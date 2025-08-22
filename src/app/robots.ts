@@ -8,7 +8,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: [
       {
         userAgent: "*",
-        allow: ["/"],
+        allow: ["/", "/anixplorer"],
         disallow: ["/private/"],
       },
     ],
