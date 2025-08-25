@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Github, Linkedin, Mail, MapPin, Phone, Twitter } from "lucide-react";
 import Link from "next/link";
-import { AnimatedGroup } from "./ui/animated-group";
+import { AnimatedGroup } from "@/components/ui/animated-group";
 
 const socialLinks = [
   { icon: Github, href: "#", label: "GitHub" },

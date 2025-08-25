@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { AnimatedGroup } from "./ui/animated-group";
+import { AnimatedGroup } from "@/components/ui/animated-group";
 
 export default function ContentSection() {
   return (

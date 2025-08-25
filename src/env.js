@@ -14,6 +14,8 @@ export const env = createEnv({
     OPEN_ROUTER_API_KEY: z.string(),
     BASE_URL: z.string(),
     GOOGLE_SITE_VERIFICATION: z.string(),
+    KV_REST_API_TOKEN: z.string(),
+    KV_REST_API_URL: z.string(),
   },
 
   /**
@@ -35,6 +37,8 @@ export const env = createEnv({
     OPEN_ROUTER_API_KEY: process.env.OPEN_ROUTER_API_KEY,
     BASE_URL: process.env.BASE_URL,
     GOOGLE_SITE_VERIFICATION: process.env.GOOGLE_SITE_VERIFICATION,
+    KV_REST_API_TOKEN: process.env.KV_REST_API_TOKEN,
+    KV_REST_API_URL: process.env.KV_REST_API_URL,
     // NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
   },
   /**

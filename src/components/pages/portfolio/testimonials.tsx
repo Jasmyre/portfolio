@@ -1,6 +1,6 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardContent } from "@/components/ui/card";
-import { AnimatedGroup } from "./ui/animated-group";
+import { AnimatedGroup } from "@/components/ui/animated-group";
 
 type Testimonial = {
   name: string;
