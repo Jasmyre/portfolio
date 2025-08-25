@@ -1,13 +1,16 @@
 import z from "zod";
 
-import { createTRPCRouter, publicProcedure } from "@/server/api/trpc";
-import { JikanClient } from "@tutkli/jikan-ts";
 import { TRPCError } from "@trpc/server";
+import { JikanClient } from "@tutkli/jikan-ts";
+import {
+  createTRPCRouter,
+  publicRateLimitedProcedure,
+} from "@/server/api/trpc";
 
 const jikanClient = new JikanClient();
 
 export const anixplorerRouter = createTRPCRouter({
-  getAnimeByID: publicProcedure
+  getAnimeByID: publicRateLimitedProcedure
     .input(z.object({ id: z.number() }))
     .query(async ({ input }) => {
       try {
@@ -15,7 +18,7 @@ export const anixplorerRouter = createTRPCRouter({
         return data;
       } catch (error) {
         console.error("getAnimeByID public procedure error:", error);
-        
+
         if (error instanceof Error && error.message.includes("429")) {
           throw new TRPCError({
             code: "TOO_MANY_REQUESTS",
@@ -30,7 +33,7 @@ export const anixplorerRouter = createTRPCRouter({
       }
     }),
 
-  getTopAnime: publicProcedure
+  getTopAnime: publicRateLimitedProcedure
     .input(
       z.object({
         page: z.number().min(1).default(1),

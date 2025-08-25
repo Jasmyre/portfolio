@@ -1,3 +1,5 @@
+import { redis } from "@/lib/redis";
+
 /**
  * YOU PROBABLY DON'T NEED TO EDIT THIS FILE, UNLESS:
  * 1. You want to modify request context (see Part 1).
@@ -104,3 +106,33 @@ const timingMiddleware = t.middleware(async ({ next, path }) => {
  * are logged in.
  */
 export const publicProcedure = t.procedure.use(timingMiddleware);
+
+const WINDOW_SEC = 40; // 40 seconds
+const LIMIT = 10; // max 10 requests per window
+
+const publicRateLimiter = t.middleware(async ({ ctx, next, path }) => {
+  const ip =
+    ctx.headers.get("x-forwarded-for") ??
+    ctx.headers.get("cf-connecting-ip") ??
+    "anon";
+
+  const key = `ratelimit:${ip}:${path}`;
+
+  const requests = await redis.incr(key);
+
+  if (requests === 1) {
+    await redis.expire(key, WINDOW_SEC);
+  }
+
+  if (requests > LIMIT) {
+    throw new TRPCError({
+      code: "TOO_MANY_REQUESTS",
+      message: "Too many requests from this IP. Please slow down.",
+    });
+  }
+
+  return next();
+});
+
+export const publicRateLimitedProcedure =
+  publicProcedure.use(publicRateLimiter);
