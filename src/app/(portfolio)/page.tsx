@@ -8,13 +8,13 @@ import {
   User
 } from "lucide-react";
 
-import ContentSection from '@/components/content-1';
-import FooterSection from "@/components/footer";
-import HeroSection from "@/components/hero-section";
+import ContentSection from '@/components/pages/portfolio/content-1';
+import FooterSection from "@/components/pages/portfolio/footer";
+import HeroSection from "@/components/pages/portfolio/hero-section";
 import { NavigationBar } from "@/components/navigation-bar";
-import { ProjectsSection } from '@/components/project-section';
-import WallOfLoveSection from '@/components/testimonials';
-import { ContactSection } from '@/components/contact-section';
+import { ProjectsSection } from '@/components/pages/portfolio/project-section';
+import WallOfLoveSection from '@/components/pages/portfolio/testimonials';
+import { ContactSection } from '@/components/pages/portfolio/contact-section';
 
 export default async function HomePage() {
   // const hello = await api.post.hello({ text: "from tRPC Test" });
