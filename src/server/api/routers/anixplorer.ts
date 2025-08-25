@@ -9,8 +9,24 @@ export const anixplorerRouter = createTRPCRouter({
   getAnimeByID: publicProcedure
     .input(z.object({ id: z.number() }))
     .query(async ({ input }) => {
-      const anime = await jikanClient.anime.getAnimeById(input.id);
-
-      return anime;
+      try {
+        const anime = await jikanClient.anime.getAnimeById(input.id);
+        return anime;
+      } catch {
+        console.error(
+          "getAnimeByID public procedure error: Something went wrong!",
+        );
+      }
     }),
+
+  getTopAnime: publicProcedure.query(async () => {
+    try {
+
+    } catch {
+      console.error(
+        "getTopAnime public procedure error: Something went wrong!",
+      );
+    }
+    return await jikanClient.top.getTopAnime();
+  }),
 });
