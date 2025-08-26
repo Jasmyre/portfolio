@@ -9,6 +9,7 @@ export default async function AniXplorerPage() {
       <div className="relative">
         <NavigationBar
           navItems={getNavItems()}
+          pageItems={getPageItems()}
           enableBlock={false}
           title="AniXplorer"
         />
@@ -16,6 +17,23 @@ export default async function AniXplorerPage() {
       </div>
     </HydrateClient>
   );
+}
+
+function getPageItems() {
+  const pageItems: NavItem[] = [
+    {
+      href: "/",
+      name: "Portfolio",
+      icon: <Home className="h-4 w-4" />,
+    },
+    {
+      href: "/anixplorer",
+      name: "Anixplorer",
+      icon: <Home className="h-4 w-4" />,
+    },
+  ];
+
+  return pageItems;
 }
 
 function getNavItems() {

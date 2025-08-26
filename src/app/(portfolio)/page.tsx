@@ -26,7 +26,7 @@ export default async function HomePage() {
   return (
     <HydrateClient>
       <div className="relative">
-        <NavigationBar navItems={getNavItems()} enableBlock={false} title="Jasmyre" />
+        <NavigationBar navItems={getNavItems()} pageItems={getPageItems()} enableBlock={false} title="Jasmyre" />
         <main className="min-h-[100vh] w-full" id="home">
           <HeroSection />
           <ContentSection />
@@ -39,6 +39,23 @@ export default async function HomePage() {
       </div>
     </HydrateClient>
   );
+}
+
+function getPageItems() {
+  const pageItems: NavItem[] = [
+    {
+      href: "/",
+      name: "Portfolio",
+      icon: <Home className="h-4 w-4" />,
+    },
+    {
+      href: "/anixplorer",
+      name: "Anixplorer",
+      icon: <Home className="h-4 w-4" />,
+    },
+  ];
+
+  return pageItems;
 }
 
 function getNavItems() {
@@ -55,7 +72,7 @@ function getNavItems() {
     },
     {
       href: "#portfolio",
-      name: "Portfolio",
+      name: "Projects",
       icon: <Briefcase className="h-4 w-4" />,
     },
     {

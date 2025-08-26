@@ -67,7 +67,7 @@ import {
   Search,
   Settings,
   Sun,
-  User
+  User,
 } from "lucide-react";
 import { useTheme } from "next-themes";
 import Link from "next/link";
@@ -84,12 +84,14 @@ export interface NavItem {
 
 interface AdaptiveNavProps {
   navItems: NavItem[];
+  pageItems?: NavItem[];
   title?: string;
   enableBlock?: boolean;
 }
 
 export function NavigationBar({
   navItems,
+  pageItems,
   title = "Logo",
   enableBlock = true,
 }: AdaptiveNavProps) {
@@ -184,6 +186,27 @@ export function NavigationBar({
                   </CommandItem>
                 ))}
               </CommandGroup>
+              {pageItems && (
+                <>
+                  <CommandSeparator />
+                  <CommandGroup heading="Pages">
+                    {pageItems.map((item, index) => (
+                      <CommandItem
+                        key={index}
+                        onSelect={() => {
+                          if (item.href) router.push(item.href);
+                          setIsSearchOpen(false);
+                        }}
+                        className="cursor-pointer opacity-70 transition-all duration-200 hover:opacity-100"
+                      >
+                        {item.icon && <span className="mr-2">{item.icon}</span>}
+                        <span>{item.name}</span>
+                        {item.href && <CommandShortcut>Go</CommandShortcut>}
+                      </CommandItem>
+                    ))}
+                  </CommandGroup>
+                </>
+              )}
               <CommandSeparator />
               <CommandGroup heading="Settings">
                 <CommandItem
@@ -460,7 +483,7 @@ export function NavigationBar({
               )}
               <span className="sr-only">Toggle theme</span>
             </Button>
-            
+
             <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
               <SheetTrigger asChild>
                 <Button
