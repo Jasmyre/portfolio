@@ -190,7 +190,7 @@ export const HeroDisplay = async () => {
   return (
     <div className="space-y-4">
       <div className="relative overflow-visible">
-        <div className="absolute top-1/2 flex w-fit -translate-y-1/2 flex-col space-y-4">
+        <div className="lg:absolute lg:top-1/2 flex w-fit lg:-translate-y-1/2 flex-col space-y-4">
           <div className="flex gap-4">
             {anime.data.slice(0, 4).map((item, _index) => {
               return AnimeRow({ item: item, _index: _index });
