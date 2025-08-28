@@ -190,7 +190,7 @@ export const HeroDisplay = async () => {
   return (
     <div className="space-y-4">
       <div className="relative overflow-visible">
-        <div className="lg:absolute lg:top-1/2 flex w-fit lg:-translate-y-1/2 flex-col space-y-4">
+        <div className="flex w-fit flex-col space-y-4 lg:absolute lg:top-1/2 lg:-translate-y-1/2">
           <div className="flex gap-4">
             {anime.data.slice(0, 4).map((item, _index) => {
               return AnimeRow({ item: item, _index: _index });
@@ -222,7 +222,7 @@ function AnimeRow({ item, _index }: { item: Daum; _index: number }) {
       />
       <span className="absolute top-0 left-0 z-10 h-full w-full bg-gradient-to-b from-transparent to-black/70 to-90% dark:from-black/20 dark:to-black" />
       <div className="absolute bottom-2 z-20 flex h-full w-full flex-row items-end justify-start px-2 py-2">
-        <Badge className="text-white dark:text-secondary-foreground bg-primary absolute top-4 right-2 border font-bold shadow">
+        <Badge className="dark:text-secondary-foreground bg-primary absolute top-4 right-2 border font-bold text-white shadow">
           {item.type}
         </Badge>
         <p className="dark:text-muted-foreground group-hover:dark:text-foreground line-clamp-1 font-semibold text-gray-300 group-hover:text-white">

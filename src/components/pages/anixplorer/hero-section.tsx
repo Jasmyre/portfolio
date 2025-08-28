@@ -3,12 +3,9 @@ import { Button } from "@/components/ui/button";
 
 export const HeroSection = () => {
   return (
-    <section
-      className="relative min-h-[100vh] w-full overflow-hidden"
-      id="hero"
-    >
-      <div className="relative mx-auto flex h-full min-h-[90vh] max-w-7xl flex-col items-center justify-center gap-16 px-6 lg:min-h-screen lg:flex-row">
-        <div className="flex max-w-xl min-h-[100vh] flex-1 flex-col justify-center space-y-8 lg:h-full lg:min-h-fit">
+    <section className="relative w-full overflow-hidden" id="hero">
+      <div className="relative mx-auto flex h-full max-w-7xl flex-col items-center justify-center gap-16 px-6 lg:min-h-screen lg:flex-row">
+        <div className="flex min-h-[75vh] max-w-xl flex-1 flex-col justify-center space-y-8 lg:h-full lg:min-h-fit">
           <div className="relative space-y-4">
             <h1 className="text-6xl leading-tight font-bold text-pretty">
               Your Gateway to the World of Anime

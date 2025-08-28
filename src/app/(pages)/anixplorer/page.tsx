@@ -10,7 +10,7 @@ export default async function AniXplorerPage() {
         <NavigationBar
           navItems={getNavItems()}
           pageItems={getPageItems()}
-          enableBlock={false}
+          enableBlock={true}
           title="AniXplorer"
         />
         <HeroSection />
