@@ -56,18 +56,16 @@ import { useScrollDirection } from "@/hooks/use-scroll-direction";
 import { cn } from "@/lib/utils";
 import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import {
-  Bell,
   ChevronRight,
   GalleryVerticalEnd,
   Home,
   LogOut,
   Menu,
   Moon,
-  Plus,
   Search,
   Settings,
   Sun,
-  User,
+  User
 } from "lucide-react";
 import { useTheme } from "next-themes";
 import Link from "next/link";
@@ -391,7 +389,7 @@ export function NavigationBar({
       {/* Breadcrumbs - Desktop */}
       {pathname !== "/" && (
         <div
-          className={`bg-background/80 supports-[backdrop-filter]:bg-background/60 fixed top-14 right-0 left-0 z-40 border-b backdrop-blur transition-transform duration-300 ease-in-out ${
+          className={`bg-background/80 supports-[backdrop-filter]:bg-background/60 fixed ${isVisible ? "top-14" : "top-10"} right-0 left-0 z-40 border-b backdrop-blur transition-transform duration-300 ease-in-out ${
             isVisible ? "translate-y-0" : "-translate-y-full"
           } hidden lg:block`}
         >
@@ -406,7 +404,7 @@ export function NavigationBar({
                           <BreadcrumbLink asChild>
                             <Link
                               href={crumb.href}
-                              className="flex cursor-pointer items-center gap-1 opacity-70 transition-all duration-200 hover:opacity-100"
+                              className="flex cursor-pointer items-center gap-1 opacity-70 transition-all delay-400 duration-200 hover:opacity-100"
                             >
                               <span className="transition-transform duration-200">
                                 {crumb.icon}
@@ -671,15 +669,6 @@ function MobileSidebar({
             <Button
               variant="ghost"
               className="h-9 cursor-pointer justify-start px-3 opacity-80 transition-all duration-200 hover:opacity-100"
-              onClick={onNavigate}
-              aria-label="Quick add item"
-            >
-              <Plus className="mr-2 h-4 w-4 transition-transform duration-200 hover:rotate-90" />
-              Quick Add
-            </Button>
-            <Button
-              variant="ghost"
-              className="h-9 cursor-pointer justify-start px-3 opacity-80 transition-all duration-200 hover:opacity-100"
               onClick={toggleTheme}
               aria-label="Toggle theme"
             >
@@ -693,15 +682,6 @@ function MobileSidebar({
                 </>
               )}
               Toggle Theme
-            </Button>
-            <Button
-              variant="ghost"
-              className="h-9 cursor-pointer justify-start px-3 opacity-80 transition-all duration-200 hover:opacity-100"
-              onClick={onNavigate}
-              aria-label="View notifications"
-            >
-              <Bell className="mr-2 h-4 w-4 transition-transform duration-200 hover:rotate-12" />
-              Notifications
             </Button>
             <Button
               variant="ghost"

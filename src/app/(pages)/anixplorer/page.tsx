@@ -1,6 +1,7 @@
 import { NavigationBar, type NavItem } from "@/components/navigation-bar";
-import { HeroSection } from "@/components/pages/anixplorer/hero-section";
+import { FeatureSection } from "@/components/pages/anixplorer/feature-section";
 import { HydrateClient } from "@/trpc/server";
+import { HeroSection } from "@/components/pages/anixplorer/hero-section";
 import { Home } from "lucide-react";
 
 export default async function AniXplorerPage() {
@@ -14,6 +15,7 @@ export default async function AniXplorerPage() {
           title="AniXplorer"
         />
         <HeroSection />
+        <FeatureSection />
       </div>
     </HydrateClient>
   );
