@@ -31,8 +31,9 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { AnimatedGroup } from "@/components/ui/animated-group";
+import { useCloseOnBack } from "@/hooks/use-close-on-back";
 
 interface Project {
   id: string;
@@ -149,7 +150,14 @@ function ProjectCard({
   className?: string;
   index: number;
 }) {
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
+  const buttonOpenerRef = useRef<HTMLButtonElement | null>(null);
   const isMobile = useIsMobile();
+
+  useCloseOnBack(isDrawerOpen, () => setIsDrawerOpen(false), {
+    restoreFocusRef: buttonOpenerRef,
+  });
 
   const ProjectContent = () => (
     <motion.div
@@ -410,8 +418,8 @@ function ProjectCard({
 
   if (isMobile) {
     return (
-      <Drawer>
-        <DrawerTrigger role="button" asChild>
+      <Drawer open={isDrawerOpen} onOpenChange={setIsDrawerOpen}>
+        <DrawerTrigger role="button" ref={buttonOpenerRef} asChild>
           <div className="h-full">
             <ProjectContent />
           </div>
@@ -433,6 +441,9 @@ function ProjectCard({
     );
   }
 
+  {
+    // TODO: remove on scroll animation
+  }
   return (
     <Sheet>
       <SheetTrigger role="button" asChild>
