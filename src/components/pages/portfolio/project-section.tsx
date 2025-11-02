@@ -95,6 +95,29 @@ const projects: Project[] = [
     challenges: ["Limited development deadline"],
   },
   {
+    id: "1",
+    title: "FateShaper",
+    description:
+      "Reimagining rock, paper, scissors with strategic RPG elements, dynamic stats, and tactical depth for an epic gaming experience.",
+    longDescription:
+      "This game is a next-level spin on the classic rock-paper-scissors. It's not just about picking rock, paper, or scissors—there's an entire RPG-style system working behind the scenes. You'll need to manage stats like strength, precision, crit, speed, fatigue, and momentum, which all affect every move in combat. This makes each battle more strategic, dynamic, and unpredictable.",
+    image: "/fateshaper-banner.png",
+    technologies: ["Vite", "Typescript", "Tailwind"],
+    category: "Game dev",
+    year: "2024",
+    status: "completed",
+    githubUrl: "https://github.com/Jasmyre/fateshaper",
+    liveUrl: "https://fateshaper.vercel.app",
+    stats: {
+      users: 10,
+      performance: 91,
+      codeQuality: 89,
+      features: 1,
+    },
+    highlights: ["Challenging gameplay"],
+    challenges: [],
+  },
+  {
     id: "3",
     title: "Search4Movies",
     description:
