@@ -205,25 +205,6 @@ export function NavigationBar({
                   </CommandGroup>
                 </>
               )}
-              <CommandSeparator />
-              <CommandGroup heading="Settings">
-                <CommandItem
-                  onSelect={() => setIsSearchOpen(false)}
-                  className="cursor-pointer opacity-70 transition-all duration-200 hover:opacity-100"
-                >
-                  <User className="mr-2 h-4 w-4" />
-                  <span>Profile</span>
-                  <CommandShortcut>⌘P</CommandShortcut>
-                </CommandItem>
-                <CommandItem
-                  onSelect={() => setIsSearchOpen(false)}
-                  className="cursor-pointer opacity-70 transition-all duration-200 hover:opacity-100"
-                >
-                  <Settings className="mr-2 h-4 w-4" />
-                  <span>Settings</span>
-                  <CommandShortcut>⌘S</CommandShortcut>
-                </CommandItem>
-              </CommandGroup>
             </CommandList>
           </Command>
         </DialogContent>
@@ -231,7 +212,7 @@ export function NavigationBar({
 
       {/* Desktop Navigation */}
       <header
-        className={`bg-background/95 supports-[backdrop-filter]:bg-background/60 fixed top-0 right-0 left-0 z-50 border-b backdrop-blur transition-transform duration-300 ease-in-out ${
+        className={`bg-background/95 supports-[backdrop-filter]:bg-background/60 fixed top-0 right-0 left-0 z-50 w-screen border-b backdrop-blur transition-transform duration-300 ease-in-out ${
           isVisible ? "translate-y-0" : "-translate-y-full"
         } hidden lg:block`}
       >
@@ -349,38 +330,6 @@ export function NavigationBar({
                 )}
                 <span className="sr-only">Toggle theme</span>
               </Button>
-
-              {/* User Menu */}
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    aria-label="User menu"
-                    className="cursor-pointer opacity-70 transition-all duration-200 hover:opacity-100"
-                  >
-                    <User className="h-4 w-4 transition-transform duration-200" />
-                    <span className="sr-only">User menu</span>
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent align="end" className="w-56">
-                  <DropdownMenuLabel>My Account</DropdownMenuLabel>
-                  <DropdownMenuSeparator />
-                  <DropdownMenuItem className="cursor-pointer opacity-80 transition-all duration-200 hover:opacity-100">
-                    <User className="mr-2 h-4 w-4 transition-transform duration-200" />
-                    <span>Profile</span>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem className="cursor-pointer opacity-80 transition-all duration-200 hover:opacity-100">
-                    <Settings className="mr-2 h-4 w-4 transition-transform duration-200" />
-                    <span>Settings</span>
-                  </DropdownMenuItem>
-                  <DropdownMenuSeparator />
-                  <DropdownMenuItem className="cursor-pointer opacity-80 transition-all duration-200 hover:opacity-100">
-                    <LogOut className="mr-2 h-4 w-4 transition-transform duration-200" />
-                    <span>Log out</span>
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
             </div>
           </div>
         </div>
@@ -389,7 +338,7 @@ export function NavigationBar({
       {/* Breadcrumbs - Desktop */}
       {pathname !== "/" && (
         <div
-          className={`bg-background/80 supports-[backdrop-filter]:bg-background/60 fixed ${isVisible ? "top-14" : "top-10"} right-0 left-0 z-40 border-b backdrop-blur transition-transform duration-300 ease-in-out ${
+          className={`bg-background/80 supports-[backdrop-filter]:bg-background/60 fixed w-screen ${isVisible ? "top-14" : "top-10"} right-0 left-0 z-40 border-b backdrop-blur transition-transform duration-300 ease-in-out ${
             isVisible ? "translate-y-0" : "-translate-y-full"
           } hidden lg:block`}
         >

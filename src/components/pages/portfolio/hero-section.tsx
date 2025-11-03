@@ -1,6 +1,4 @@
-import { AnimatedGroup } from "@/components/ui/animated-group";
 import { Button } from "@/components/ui/button";
-import { TextEffect } from "@/components/ui/text-effect";
 import { ArrowDown } from "lucide-react";
 import Link from "next/link";
 
@@ -8,34 +6,7 @@ export default function HeroSection() {
   return (
     <>
       <section className="relative flex min-h-[90vh] items-center justify-center overflow-hidden lg:min-h-screen">
-        <AnimatedGroup
-          variants={{
-            container: {
-              visible: {
-                transition: {
-                  staggerChildren: 0.05,
-                  delayChildren: 1,
-                },
-              },
-            },
-            item: {
-              hidden: {
-                opacity: 0,
-                y: 20,
-              },
-              visible: {
-                opacity: 1,
-                y: 0,
-                transition: {
-                  type: "spring",
-                  bounce: 0.3,
-                  duration: 2,
-                },
-              },
-            },
-          }}
-          className="absolute bottom-10 cursor-pointer"
-        >
+        <div className="absolute bottom-10 cursor-pointer">
           <Button
             size={"icon"}
             variant={"outline"}
@@ -49,7 +20,7 @@ export default function HeroSection() {
               <ArrowDown />
             </Link>
           </Button>
-        </AnimatedGroup>
+        </div>
         <div
           aria-hidden
           className="absolute inset-0 isolate hidden opacity-65 contain-strict lg:block"
@@ -63,68 +34,24 @@ export default function HeroSection() {
             <div className="absolute inset-0 -z-10 size-full [background:radial-gradient(125%_125%_at_50%_100%,transparent_0%,var(--color-background)_75%)]"></div>
             <div className="mx-auto max-w-7xl px-6">
               <div className="text-center sm:mx-auto lg:mt-0 lg:mr-auto">
-                <TextEffect
-                  preset="fade-in-blur"
-                  speedSegment={0.3}
-                  as="h1"
-                  className="text-4xl text-balance sm:text-6xl md:text-7xl lg:text-6xl xl:text-[5.25rem]"
-                >
+                <h1 className="text-4xl text-balance sm:text-6xl md:text-7xl lg:text-6xl xl:text-[5.25rem]">
                   No tech skills? No problem. I&apos;ll build the site for you.
-                </TextEffect>
-                <TextEffect
-                  per="line"
-                  preset="fade-in-blur"
-                  speedSegment={0.275}
-                  delay={0.5}
-                  as="p"
-                  className="text-muted-foreground mx-auto mt-8 max-w-2xl text-lg md:text-pretty"
-                >
+                </h1>
+                <p className="text-muted-foreground mx-auto mt-8 max-w-2xl text-lg md:text-pretty">
                   You don’t need to know how websites work—I’ll handle the
                   details and build something that fits exactly what you need
-                </TextEffect>
+                </p>
 
-                <AnimatedGroup
-                  variants={{
-                    container: {
-                      visible: {
-                        transition: {
-                          staggerChildren: 0.05,
-                          delayChildren: 0.75,
-                        },
-                      },
-                    },
-                    item: {
-                      hidden: {
-                        opacity: 0,
-                        y: 20,
-                      },
-                      visible: {
-                        opacity: 1,
-                        y: 0,
-                        transition: {
-                          type: "spring",
-                          bounce: 0.3,
-                          duration: 2,
-                        },
-                      },
-                    },
-                  }}
-                  className="mt-12 flex w-full flex-col items-center justify-center gap-2 md:flex-row"
-                >
-                  <div
-                    key={1}
-                    className="bg-foreground/10 rounded-[calc(var(--radius-xl)+0.125rem)] border p-0.5"
+                <div className="mx-auto mt-12 flex w-full max-w-sm flex-col items-center justify-center gap-4 md:flex-row">
+                  <Button
+                    asChild
+                    size="lg"
+                    className="rounded-xl px-5 text-base max-md:w-full"
                   >
-                    <Button
-                      asChild
-                      size="lg"
-                      className="rounded-xl px-5 text-base max-md:w-full"
-                    >
-                      <Link href="#portfolio">
-                        <span className="text-nowrap">View portfolio</span>
-                      </Link>
-                    </Button>
-                  </div>
+                    <Link href="#portfolio">
+                      <span className="text-nowrap">View portfolio</span>
+                    </Link>
+                  </Button>
                   <Button
                     key={2}
                     asChild
@@ -136,7 +63,7 @@ export default function HeroSection() {
                       <span className="text-nowrap">Contact me</span>
                     </Link>
                   </Button>
-                </AnimatedGroup>
+                </div>
               </div>
             </div>
           </div>

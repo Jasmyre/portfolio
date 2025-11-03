@@ -1,16 +1,15 @@
 import Image from "next/image";
-import { AnimatedGroup } from "@/components/ui/animated-group";
 
 export default function ContentSection() {
   return (
     <section className="py-16 md:py-32" id="about">
       <div className="mx-auto max-w-7xl space-y-8 px-6 md:space-y-16">
-        <AnimatedGroup once={false} amount={0.1}>
+        <div>
           <h2 className="text-muted-foreground text-center text-3xl font-semibold text-balance md:text-4xl">
             About me
           </h2>
-        </AnimatedGroup>
-        <AnimatedGroup once={false} amount={0.1}>
+        </div>
+        <div>
           <div className="grid gap-6 sm:grid-cols-2 md:gap-12 lg:gap-24">
             <div className="relative mb-6 sm:mb-0">
               <div className="relative aspect-76/59 rounded-2xl bg-linear-to-b from-zinc-300 to-transparent p-px dark:from-zinc-700">
@@ -71,7 +70,7 @@ export default function ContentSection() {
               </div>
             </div>
           </div>
-        </AnimatedGroup>
+        </div>
       </div>
     </section>
   );

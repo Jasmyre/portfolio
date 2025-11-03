@@ -1,5 +1,4 @@
 "use client";
-import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -18,6 +17,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { useCloseOnBack } from "@/hooks/use-close-on-back";
 import { useIsMobile } from "@/hooks/use-mobile";
 import {
   ArrowUpRight,
@@ -32,8 +32,6 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { useRef, useState } from "react";
-import { AnimatedGroup } from "@/components/ui/animated-group";
-import { useCloseOnBack } from "@/hooks/use-close-on-back";
 
 interface Project {
   id: string;
@@ -167,7 +165,6 @@ const projects: Project[] = [
 function ProjectCard({
   project,
   className,
-  index,
 }: {
   project: Project;
   className?: string;
@@ -183,17 +180,7 @@ function ProjectCard({
   });
 
   const ProjectContent = () => (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{
-        delay: index * 0.1,
-        duration: 0.5,
-        ease: "easeOut",
-      }}
-      viewport={{ once: true, margin: "-100px" }}
-      className="h-full"
-    >
+    <div className="h-full">
       <Card
         className={`group from-card to-card/80 hover:from-accent/20 hover:to-accent/10 h-full cursor-pointer overflow-hidden border-0 bg-gradient-to-br py-0 backdrop-blur-sm transition-all duration-300 ${className}`}
       >
@@ -285,7 +272,7 @@ function ProjectCard({
           </div>
         </CardContent>
       </Card>
-    </motion.div>
+    </div>
   );
 
   const ProjectDetails = () => (
@@ -505,11 +492,11 @@ export function ProjectsSection() {
     <section className="py-16 md:py-32" id="portfolio">
       <div className="mx-auto max-w-7xl space-y-8 px-6 md:space-y-16">
         <div className="flex flex-col items-center justify-center gap-6 text-center md:flex-row md:items-center">
-          <AnimatedGroup preset="slide">
+          <div>
             <h2 className="text-muted-foreground text-center text-3xl font-semibold text-balance md:text-4xl">
               Projects
             </h2>
-          </AnimatedGroup>
+          </div>
         </div>
 
         <div className="grid grid-cols-2 gap-3 md:flex md:flex-wrap md:items-center md:justify-center">
@@ -528,19 +515,14 @@ export function ProjectsSection() {
 
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {filteredProjects.map((project, index) => (
-            <AnimatedGroup
-              once={false}
-              className="h-full"
-              key={project.id}
-              amount={0.1}
-            >
+            <div className="h-full" key={project.id}>
               <ProjectCard project={project} index={index} />
-            </AnimatedGroup>
+            </div>
           ))}
         </div>
 
         <div className="mt-12">
-          <AnimatedGroup once={false} amount={0.1}>
+          <div>
             <div className="from-muted/30 to-muted/10 border-border/50 rounded-2xl border bg-gradient-to-r p-8 backdrop-blur-sm">
               <div className="grid grid-cols-2 gap-8 text-center md:grid-cols-4">
                 <div className="space-y-3">
@@ -589,7 +571,7 @@ export function ProjectsSection() {
                 </div>
               </div>
             </div>
-          </AnimatedGroup>
+          </div>
         </div>
       </div>
     </section>
