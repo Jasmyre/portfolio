@@ -65,7 +65,7 @@ import {
   Search,
   Settings,
   Sun,
-  User
+  User,
 } from "lucide-react";
 import { useTheme } from "next-themes";
 import Link from "next/link";

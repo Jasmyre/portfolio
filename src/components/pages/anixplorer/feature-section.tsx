@@ -14,9 +14,9 @@ export const FeatureSection = () => {
             quick, reliable access to anime data.
           </p>
         </div>
-        <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-rows-2 gap-8">
+        <div className="relative grid grid-cols-1 grid-rows-2 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {/* <div className="pointer-events-none absolute top-1/2 left-1/2 -z-10 hidden h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle_farthest-side,rgba(255,0,182,.15),rgba(255,255,255,0))] md:h-[1000px] md:w-[1000px] lg:block"></div> */}
-          <Card className="from-card/25 duration-200 hover:from-card/75 hover:to-background/75 transition-all to-background/25 bg-gradient-to-b px-0 backdrop-blur-xl">
+          <Card className="from-card/25 hover:from-card/75 hover:to-background/75 to-background/25 bg-gradient-to-b px-0 backdrop-blur-xl transition-all duration-200">
             <CardHeader className="flex items-center justify-center px-0">
               <Search className="text-primary h-20 w-20 text-center" />
             </CardHeader>
@@ -29,7 +29,7 @@ export const FeatureSection = () => {
               </div>
             </CardContent>
           </Card>
-          <Card className="from-card/25 duration-200 hover:from-card/75 hover:to-background/75 transition-all to-background/25 bg-gradient-to-b px-0 backdrop-blur-xl">
+          <Card className="from-card/25 hover:from-card/75 hover:to-background/75 to-background/25 bg-gradient-to-b px-0 backdrop-blur-xl transition-all duration-200">
             <CardHeader className="flex items-center justify-center px-0">
               <Globe className="text-primary h-20 w-20 text-center" />
             </CardHeader>
@@ -44,7 +44,7 @@ export const FeatureSection = () => {
               </div>
             </CardContent>
           </Card>
-          <Card className="from-card/25 md:col-span-full lg:col-span-1 duration-200 hover:from-card/75 hover:to-background/75 transition-all to-background/25 bg-gradient-to-b px-0 backdrop-blur-xl">
+          <Card className="from-card/25 hover:from-card/75 hover:to-background/75 to-background/25 bg-gradient-to-b px-0 backdrop-blur-xl transition-all duration-200 md:col-span-full lg:col-span-1">
             <CardHeader className="flex items-center justify-center px-0">
               <BookOpenText className="text-primary h-20 w-20 text-center" />
             </CardHeader>
@@ -57,7 +57,7 @@ export const FeatureSection = () => {
               </div>
             </CardContent>
           </Card>
-          <Card className="from-card/25 duration-200 hover:from-card/75 hover:to-background/75 transition-all to-background/25 col-span-full bg-gradient-to-b px-0 backdrop-blur-xl">
+          <Card className="from-card/25 hover:from-card/75 hover:to-background/75 to-background/25 col-span-full bg-gradient-to-b px-0 backdrop-blur-xl transition-all duration-200">
             <CardHeader className="flex items-center justify-center px-0">
               <Rocket className="text-primary h-20 w-20 text-center" />
             </CardHeader>

@@ -64,9 +64,9 @@ export default function ContentSection() {
               </div>
               <div className="pt-6">
                 <p className="text-muted-foreground text-pretty">
-                  If you&apos;re looking for someone to build a website that works
-                  well and is easy to manage, feel free to check my projects or
-                  get in touch.
+                  If you&apos;re looking for someone to build a website that
+                  works well and is easy to manage, feel free to check my
+                  projects or get in touch.
                 </p>
               </div>
             </div>

@@ -101,9 +101,7 @@ export default function WallOfLoveSection() {
                           </span>
 
                           <blockquote className="mt-3">
-                            <p className="text-foreground/75 italic">
-                              {quote}
-                            </p>
+                            <p className="text-foreground/75 italic">{quote}</p>
                           </blockquote>
                         </div>
                       </CardContent>

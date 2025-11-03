@@ -38,7 +38,12 @@ export default function SkillsSection() {
                 speedOnHover={30}
               >
                 <SkillsCard isCenter={true} className="size-24">
-                  <Image src={"/svg-icon/javascript.svg"} width={80} height={80} alt="Javascript"/>
+                  <Image
+                    src={"/svg-icon/javascript.svg"}
+                    width={80}
+                    height={80}
+                    alt="Javascript"
+                  />
                 </SkillsCard>
                 <SkillsCard isCenter={true} className="size-24">
                   <Replit />

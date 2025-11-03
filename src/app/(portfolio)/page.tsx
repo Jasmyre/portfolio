@@ -1,20 +1,15 @@
 import { type NavItem } from "@/components/navigation-bar";
 import { HydrateClient } from "@/trpc/server";
-import {
-  Briefcase,
-  Home,
-  Mail,
-  MessageSquareText,
-  User
-} from "lucide-react";
+import { Briefcase, Home, Mail, MessageSquareText, User } from "lucide-react";
 
-import ContentSection from '@/components/pages/portfolio/content-1';
+import ContentSection from "@/components/pages/portfolio/content-1";
 import FooterSection from "@/components/pages/portfolio/footer";
 import HeroSection from "@/components/pages/portfolio/hero-section";
 import { NavigationBar } from "@/components/navigation-bar";
-import { ProjectsSection } from '@/components/pages/portfolio/project-section';
-import WallOfLoveSection from '@/components/pages/portfolio/testimonials';
-import { ContactSection } from '@/components/pages/portfolio/contact-section';
+import { ProjectsSection } from "@/components/pages/portfolio/project-section";
+import WallOfLoveSection from "@/components/pages/portfolio/testimonials";
+import { ContactSection } from "@/components/pages/portfolio/contact-section";
+import { ServicesSection } from "../../components/pages/portfolio/service-section";
 
 export default async function HomePage() {
   // const hello = await api.post.hello({ text: "from tRPC Test" });
@@ -26,11 +21,16 @@ export default async function HomePage() {
   return (
     <HydrateClient>
       <div className="relative">
-        <NavigationBar navItems={getNavItems()} pageItems={getPageItems()} enableBlock={false} title="Jasmyre" />
+        <NavigationBar
+          navItems={getNavItems()}
+          pageItems={getPageItems()}
+          enableBlock={false}
+          title="Jasmyre"
+        />
         <main className="min-h-[100vh] w-full" id="home">
           <HeroSection />
           <ContentSection />
-          {/* <SkillsSection /> */}
+          <ServicesSection />
           <ProjectsSection />
           <WallOfLoveSection />
           <ContactSection />

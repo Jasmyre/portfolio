@@ -39,7 +39,7 @@ export default function HeroSection() {
           <Button
             size={"icon"}
             variant={"outline"}
-            className="z-50 cursor-pointer rounded-full opacity-75 animate-bounce"
+            className="z-50 animate-bounce cursor-pointer rounded-full opacity-75"
             asChild
           >
             <Link
@@ -109,7 +109,7 @@ export default function HeroSection() {
                       },
                     },
                   }}
-                  className="mt-12 flex flex-col items-center justify-center gap-2 md:flex-row w-full"
+                  className="mt-12 flex w-full flex-col items-center justify-center gap-2 md:flex-row"
                 >
                   <div
                     key={1}
