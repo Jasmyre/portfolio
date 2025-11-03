@@ -451,9 +451,6 @@ function ProjectCard({
     );
   }
 
-  {
-    // TODO: remove on scroll animation
-  }
   return (
     <Sheet>
       <SheetTrigger role="button" asChild>
