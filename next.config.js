@@ -6,6 +6,8 @@ import "./src/env.js";
 
 /** @type {import("next").NextConfig} */
 const config = {
+  reactCompiler: true,
+
   images: {
     remotePatterns: [new URL("https://cdn.myanimelist.net/images/**")],
   },
