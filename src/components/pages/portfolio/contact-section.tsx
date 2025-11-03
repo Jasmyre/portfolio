@@ -16,7 +16,7 @@ export function ContactSection() {
   return (
     <section className="py-16 md:py-32" id="contact">
       <div className="mx-auto max-w-7xl space-y-8 px-6 md:space-y-16">
-        <div className="flex flex-col-reverse items-center justify-center gap-12 lg:flex-row lg:gap-16">
+        <div className="flex flex-col-reverse items-center justify-center gap-12 md:flex-row lg:gap-16">
           {/* Contact Information */}
           <AnimatedGroup
             once={false}

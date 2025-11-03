@@ -10,6 +10,7 @@ import { ProjectsSection } from "@/components/pages/portfolio/project-section";
 import WallOfLoveSection from "@/components/pages/portfolio/testimonials";
 import { ContactSection } from "@/components/pages/portfolio/contact-section";
 import { ServicesSection } from "../../components/pages/portfolio/service-section";
+import { CTASection } from "@/components/pages/portfolio/cta";
 
 export default async function HomePage() {
   // const hello = await api.post.hello({ text: "from tRPC Test" });
@@ -33,6 +34,7 @@ export default async function HomePage() {
           <ServicesSection />
           <ProjectsSection />
           <WallOfLoveSection />
+          <CTASection />
           <ContactSection />
         </main>
         <FooterSection />
