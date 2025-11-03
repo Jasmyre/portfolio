@@ -382,7 +382,7 @@ function ServiceCard({ service }: { service: Service }) {
 
 export function ServicesSection() {
   return (
-    <section className="relative py-16 md:py-32">
+    <section className="relative py-16 md:py-32" id="services">
       <div className="mx-auto max-w-7xl space-y-12 px-6 md:space-y-20">
         {/* Header */}
         <div className="mx-auto max-w-3xl space-y-4 text-center">
