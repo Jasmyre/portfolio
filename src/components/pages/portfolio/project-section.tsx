@@ -57,7 +57,7 @@ interface Project {
 
 const projects: Project[] = [
   {
-    id: "2",
+    id: "1",
     title: "ICTQuest",
     description:
       "ICTQuest is a website that offers interactive coding lessons in web development. It provides activities such as arranging components and multiple-choice quizzes to support hands-on learning.",
@@ -93,7 +93,7 @@ const projects: Project[] = [
     challenges: ["Limited development deadline"],
   },
   {
-    id: "1",
+    id: "2",
     title: "FateShaper",
     description:
       "Reimagining rock, paper, scissors with strategic RPG elements, dynamic stats, and tactical depth for an epic gaming experience.",
