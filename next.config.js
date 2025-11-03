@@ -8,6 +8,10 @@ import "./src/env.js";
 const config = {
   reactCompiler: true,
 
+  experimental: {
+    turbopackFileSystemCacheForDev: true,
+  },
+
   images: {
     remotePatterns: [new URL("https://cdn.myanimelist.net/images/**")],
   },
