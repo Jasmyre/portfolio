@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useRef } from "react";
 
 import {
   Breadcrumb,
@@ -72,6 +72,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import type { ReactNode } from "react";
 import { useEffect, useState } from "react";
+import { useCloseOnBack } from "@/hooks/use-close-on-back";
 
 export interface NavItem {
   href?: string;
@@ -96,10 +97,17 @@ export function NavigationBar({
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
+
   const { theme, setTheme } = useTheme();
+
+  const buttonOpenerRef = useRef<HTMLButtonElement | null>(null);
   const isVisible = useScrollDirection();
   const pathname = usePathname();
   const router = useRouter();
+
+  useCloseOnBack(isMobileMenuOpen, () => setIsMobileMenuOpen(false), {
+    restoreFocusRef: buttonOpenerRef,
+  });
 
   // Ensure theme is mounted to avoid hydration mismatch
   useEffect(() => {
