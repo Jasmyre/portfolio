@@ -4,6 +4,8 @@
 
 Welcome to my personal portfolio website. This project showcases my skills, projects, and professional background.
 
+Live preview: https://jazmyre.vercel.app
+
 ## Features
 
 - Responsive design
