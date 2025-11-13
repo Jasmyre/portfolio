@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.3](https://github.com/Jasmyre/portfolio/compare/v0.1.2...v0.1.3) (2025-11-13)
+
+
+### Features
+
+* Add new package script for pushing new release ([c405e50](https://github.com/Jasmyre/portfolio/commit/c405e507f0271081bf2cdf11b4a6699b08f264ad))
+
 ### [0.1.2](https://github.com/Jasmyre/portfolio/compare/v0.1.1...v0.1.2) (2025-11-13)
 
 
