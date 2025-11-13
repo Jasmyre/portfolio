@@ -1,7 +1,7 @@
 export interface Project {
   id: string;
   title: string;
-  longDescription: string;
+  description: string;
   image: string;
   technologies: string[];
   category: string;
@@ -23,7 +23,7 @@ export const projects: Project[] = [
   {
     id: "1",
     title: "ICTQuest",
-    longDescription:
+    description:
       "ICTQuest is an educational website designed to help learners practice coding concepts through interactive activities. The platform includes features like an arrange component exercise and multiple-choice quizzes that reinforce key topics. Its content is structured into groups, starting with HTML basics and moving toward more advanced elements such as forms and tables. The lessons are presented in a clear format that allows users to actively engage with the material rather than just reading about it. The overall focus is on making the learning process approachable and practical for beginners and intermediate learners.",
     image: "/banner/ictquest.png",
     technologies: [
@@ -57,7 +57,7 @@ export const projects: Project[] = [
   {
     id: "2",
     title: "FateShaper",
-    longDescription:
+    description:
       "This game is a next-level spin on the classic rock-paper-scissors. It's not just about picking rock, paper, or scissors—there's an entire RPG-style system working behind the scenes. You'll need to manage stats like strength, precision, crit, speed, fatigue, and momentum, which all affect every move in combat. This makes each battle more strategic, dynamic, and unpredictable.",
     image: "/banner/fateshaper.png",
     technologies: ["Vite", "Typescript", "Tailwind"],
@@ -78,7 +78,7 @@ export const projects: Project[] = [
   {
     id: "3",
     title: "Search4Movies",
-    longDescription:
+    description:
       "Search4Movies is a website that lets users quickly look up movies and explore essential details about them. It provides information such as release year, genre, cast, and summaries in a simple, easy-to-read format. The site is designed for straightforward browsing without unnecessary clutter. Users can type in a movie title to find relevant results or discover related films through connected data. Its focus is on delivering clear movie information in an organized and accessible way.",
     image: "/banner/search4movies.png",
     technologies: ["React", "Next.js", "TMDB API", "Tailwind", "Javascript"],
@@ -99,7 +99,7 @@ export const projects: Project[] = [
   {
     id: "4",
     title: "BlissBrew",
-    longDescription:
+    description:
       "BlissBrew is a personal project showcasing a static single-page web design created for a coffee shop. The design focuses on a calm and inviting atmosphere, reflecting the cozy vibe of a café setting. It features sections for the shop’s menu, specials, and general information without complex functionality. The layout emphasizes clean typography, warm colors, and an organized structure to give visitors a smooth browsing experience. As a design project, its goal is to capture the essence of a coffee shop through visual presentation rather than interactive features.",
     image: "/banner/blissbrew.png",
     technologies: ["React", "Tailwind", "Next.js"],
