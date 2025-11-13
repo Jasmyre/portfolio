@@ -1,6 +1,6 @@
 "use client";
 
-import { services, type Service } from "@/app/data/services";
+import { services, type Service } from "@/data/services";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";

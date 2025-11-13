@@ -1,6 +1,6 @@
 "use client";
 
-import { projects, type Project } from "@/app/data/projects";
+import { projects, type Project } from "@/data/projects";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
