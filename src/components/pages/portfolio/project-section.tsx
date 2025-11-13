@@ -1,13 +1,9 @@
 "use client";
 
 import { projects, type Project } from "@/app/data/projects";
-import { Card, CardContent } from "@/components/ui/card";
-import { useRef, useState } from "react";
-import { useCloseOnBack } from "@/hooks/use-close-on-back";
-import { useIsMobile } from "@/hooks/use-mobile";
-import { Progress } from "@/components/ui/progress";
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 import {
   Drawer,
   DrawerContent,
@@ -15,6 +11,7 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer";
+import { Progress } from "@/components/ui/progress";
 import {
   Sheet,
   SheetContent,
@@ -22,6 +19,8 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { useCloseOnBack } from "@/hooks/use-close-on-back";
+import { useIsMobile } from "@/hooks/use-mobile";
 import {
   ArrowUpRight,
   Calendar,
@@ -32,6 +31,7 @@ import {
   Users,
   Zap,
 } from "lucide-react";
+import { useRef, useState } from "react";
 
 import Image from "next/image";
 import Link from "next/link";
