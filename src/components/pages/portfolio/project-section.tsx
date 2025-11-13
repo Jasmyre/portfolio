@@ -261,20 +261,6 @@ function ProjectCard({
         </ul>
       </div>
 
-      <div className="space-y-4">
-        <h4 className="text-lg font-bold">Technical Challenges</h4>
-        <ul className="space-y-3">
-          {project.challenges.map((challenge, index) => (
-            <li key={index} className="flex items-start">
-              <div className="bg-muted-foreground mt-2.5 mr-4 h-2 w-2 flex-shrink-0 rounded-full" />
-              <span className="text-muted-foreground leading-relaxed">
-                {challenge}
-              </span>
-            </li>
-          ))}
-        </ul>
-      </div>
-
       <div className="border-border flex gap-3 border-t pt-6">
         {project.githubUrl && (
           <Button

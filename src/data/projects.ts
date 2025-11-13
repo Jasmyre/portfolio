@@ -16,7 +16,6 @@ export interface Project {
     features?: number;
   };
   highlights: string[];
-  challenges: string[];
 }
 
 export const projects: Project[] = [
@@ -52,7 +51,6 @@ export const projects: Project[] = [
       "Socialize with other users",
       "Save data with accounts",
     ],
-    challenges: ["Limited development deadline"],
   },
   {
     id: "2",
@@ -73,7 +71,6 @@ export const projects: Project[] = [
       features: 1,
     },
     highlights: ["Challenging gameplay"],
-    challenges: [],
   },
   {
     id: "3",
@@ -94,7 +91,6 @@ export const projects: Project[] = [
       features: 1,
     },
     highlights: ["Search for any movies"],
-    challenges: [],
   },
   {
     id: "4",
@@ -114,6 +110,5 @@ export const projects: Project[] = [
       features: 0,
     },
     highlights: ["Specialized design vibe"],
-    challenges: [],
   },
 ];
