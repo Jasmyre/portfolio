@@ -92,7 +92,7 @@ function ProjectCard({
                 </div>
               </div>
               <p className="text-muted-foreground line-clamp-2 text-sm leading-relaxed">
-                {project.description}
+                {project.longDescription}
               </p>
             </div>
             <div className="flex flex-wrap gap-1.5 truncate">
