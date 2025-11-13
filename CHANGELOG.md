@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.4](https://github.com/Jasmyre/portfolio/compare/v0.1.3...v1.1.4) (2025-11-13)
+
+
+### Bug Fixes
+
+* semver ([7af9002](https://github.com/Jasmyre/portfolio/commit/7af90027d170c8c1cb45be6829bb8ba7b9c7404e))
+
 ### [0.1.3](https://github.com/Jasmyre/portfolio/compare/v0.1.2...v0.1.3) (2025-11-13)
 
 
