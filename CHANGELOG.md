@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.2](https://github.com/Jasmyre/portfolio/compare/v0.1.1...v0.1.2) (2025-11-13)
+
+
+### Features
+
+* restructure project and service data modules; remove old files and update imports ([7749699](https://github.com/Jasmyre/portfolio/commit/77496992be5747a592d2ee63293fe26be78a15a3))
+
+
+### Bug Fixes
+
+* add newline at the end of services.ts file ([7a6a166](https://github.com/Jasmyre/portfolio/commit/7a6a1669bc6d4bbc32bf96bc5fdcbb0956f19355))
+
 ### 0.1.1 (2025-11-13)
 
 
