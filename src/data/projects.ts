@@ -10,10 +10,12 @@ export interface Project {
   githubUrl?: string;
   liveUrl?: string;
   stats: {
+    total?: number;
     users?: number;
     performance?: number;
+    accessibility?: number;
     codeQuality?: number;
-    features?: number;
+    seo?: number;
   };
   highlights: string[];
 }
@@ -41,9 +43,11 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/Jasmyre/ictquest",
     liveUrl: "https://ictquest.vercel.app",
     stats: {
-      performance: 88,
-      codeQuality: 94,
-      features: 6,
+      total: 91,
+      performance: 90,
+      accessibility: 97,
+      codeQuality: 100,
+      seo: 91,
     },
     highlights: [
       "Interactive lesson",
@@ -65,10 +69,11 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/Jasmyre/fateshaper",
     liveUrl: "https://fateshaper.vercel.app",
     stats: {
-      users: 10,
-      performance: 91,
-      codeQuality: 89,
-      features: 1,
+      total: 82,
+      performance: 72,
+      accessibility: 82,
+      codeQuality: 95,
+      seo: 80,
     },
     highlights: ["Challenging gameplay"],
   },
@@ -85,10 +90,11 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/Jasmyre/search4movies",
     liveUrl: "https://search4movies.vercel.app",
     stats: {
-      users: 10,
-      performance: 91,
-      codeQuality: 89,
-      features: 1,
+      total: 81,
+      performance: 73,
+      accessibility: 77,
+      codeQuality: 93,
+      seo: 82,
     },
     highlights: ["Search for any movies"],
   },
@@ -105,9 +111,11 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/Jasmyre/blissbrew",
     liveUrl: "https://blissbrew.vercel.app",
     stats: {
-      performance: 96,
-      codeQuality: 95,
-      features: 0,
+      total: 90,
+      performance: 69,
+      accessibility: 94,
+      codeQuality: 96,
+      seo: 100,
     },
     highlights: ["Specialized design vibe"],
   },

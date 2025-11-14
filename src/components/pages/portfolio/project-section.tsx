@@ -1,6 +1,5 @@
 "use client";
 
-import { projects, type Project } from "@/data/projects";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -19,6 +18,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { projects, type Project } from "@/data/projects";
 import { useCloseOnBack } from "@/hooks/use-close-on-back";
 import { useIsMobile } from "@/hooks/use-mobile";
 import {
@@ -199,6 +199,22 @@ function ProjectCard({
                 <Progress value={project.stats.performance} className="h-2.5" />
               </div>
             )}
+            {project.stats.accessibility && (
+              <div className="border-border/50 bg-muted/30 rounded-xl border p-4">
+                <div className="mb-2 flex items-center justify-between">
+                  <span className="text-muted-foreground font-medium">
+                    Accessibility
+                  </span>
+                  <span className="text-foreground text-lg font-bold">
+                    {project.stats.accessibility}%
+                  </span>
+                </div>
+                <Progress
+                  value={project.stats.accessibility}
+                  className="h-2.5"
+                />
+              </div>
+            )}
             {project.stats.codeQuality && (
               <div className="border-border/50 bg-muted/30 rounded-xl border p-4">
                 <div className="mb-2 flex items-center justify-between">
@@ -213,16 +229,15 @@ function ProjectCard({
                 <Progress value={project.stats.codeQuality} className="h-2.5" />
               </div>
             )}
-            {project.stats.features && (
+            {project.stats.seo && (
               <div className="border-border/50 bg-muted/30 rounded-xl border p-4">
-                <div className="flex items-center justify-between">
-                  <span className="text-muted-foreground font-medium">
-                    Features Built
-                  </span>
+                <div className="mb-2 flex items-center justify-between">
+                  <span className="text-muted-foreground font-medium">SEO</span>
                   <span className="text-foreground text-lg font-bold">
-                    {project.stats.features}
+                    {project.stats.seo}%
                   </span>
                 </div>
+                <Progress value={project.stats.seo} className="h-2.5" />
               </div>
             )}
           </div>
@@ -381,7 +396,7 @@ export function ProjectsSection() {
         <div className="mt-12">
           <div>
             <div className="from-muted/30 to-muted/10 border-border/50 rounded-2xl border bg-gradient-to-r p-8 backdrop-blur-sm">
-              <div className="grid grid-cols-2 gap-8 text-center md:grid-cols-4">
+              <div className="grid grid-cols-1 gap-8 text-center md:grid-cols-3">
                 <div className="space-y-3">
                   <div className="text-primary text-3xl font-bold">
                     {projects.length}
@@ -400,16 +415,6 @@ export function ProjectsSection() {
                   </div>
                   <div className="text-muted-foreground text-sm font-medium">
                     Technologies Used
-                  </div>
-                </div>
-                <div className="space-y-3">
-                  <div className="text-primary text-3xl font-bold">
-                    {projects
-                      .reduce((acc, p) => acc + (p.stats.users ?? 0), 0)
-                      .toLocaleString()}
-                  </div>
-                  <div className="text-muted-foreground text-sm font-medium">
-                    Total Users Reached
                   </div>
                 </div>
                 <div className="space-y-3">
