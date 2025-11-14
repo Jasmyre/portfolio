@@ -386,7 +386,7 @@ export function ProjectsSection() {
         </div>
 
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {filteredProjects.map((project, index) => (
+          {filteredProjects.slice(0, 3).map((project, index) => (
             <div className="h-full" key={project.id}>
               <ProjectCard project={project} index={index} />
             </div>
