@@ -4,13 +4,7 @@ import { CTASection } from "@/components/pages/portfolio/cta";
 import { ProjectsSection } from "@/components/pages/portfolio/project-section";
 import { ServicesSection } from "@/components/pages/portfolio/service-section";
 import { HydrateClient } from "@/trpc/server";
-import {
-  Briefcase,
-  Home,
-  Mail,
-  Pickaxe,
-  User
-} from "lucide-react";
+import { Briefcase, Home, Mail, Pickaxe, User } from "lucide-react";
 
 import ContentSection from "@/components/pages/portfolio/content-1";
 import FooterSection from "@/components/pages/portfolio/footer";
