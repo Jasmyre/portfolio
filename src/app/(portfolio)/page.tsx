@@ -8,9 +8,8 @@ import {
   Briefcase,
   Home,
   Mail,
-  MessageSquareText,
   Pickaxe,
-  User,
+  User
 } from "lucide-react";
 
 import ContentSection from "@/components/pages/portfolio/content-1";
@@ -55,11 +54,6 @@ function getPageItems() {
       name: "Portfolio",
       icon: <Home className="h-4 w-4" />,
     },
-    {
-      href: "/anixplorer",
-      name: "Anixplorer",
-      icon: <Home className="h-4 w-4" />,
-    },
   ];
 
   return pageItems;
@@ -87,11 +81,11 @@ function getNavItems() {
       name: "Projects",
       icon: <Briefcase className="h-4 w-4" />,
     },
-    {
-      name: "Testimonial",
-      icon: <MessageSquareText className="h-4 w-4" />,
-      href: "#testimonial",
-    },
+    // {
+    //   name: "Testimonial",
+    //   icon: <MessageSquareText className="h-4 w-4" />,
+    //   href: "#testimonial",
+    // },
     {
       name: "Contact",
       icon: <Mail className="h-4 w-4" />,

@@ -16,8 +16,9 @@ const links: Links[] = [
     items: [
       { title: "Home", href: "#", target: "_self" },
       { title: "About", href: "#about", target: "_self" },
+      { title: "Services", href: "#services", target: "_self" },
       { title: "portfolio", href: "#portfolio", target: "_self" },
-      { title: "Testimonial", href: "#testimonial", target: "_self" },
+      // { title: "Testimonial", href: "#testimonial", target: "_self" },
       { title: "Contact", href: "#contact", target: "_self" },
     ],
   },
@@ -25,7 +26,6 @@ const links: Links[] = [
     group: "Pages",
     items: [
       { title: "Portfolio", href: "/", target: "_blank" },
-      { title: "Anixplorer", href: "/anixplorer", target: "_blank" },
       { title: "Sitemap", href: "/sitemap.xml", target: "_blank" },
     ],
   },
