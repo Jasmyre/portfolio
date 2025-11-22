@@ -7,6 +7,8 @@ import { TRPCReactProvider } from "@/trpc/react";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Analytics } from "@vercel/analytics/next";
 import { env } from "@/env";
+import { NavigationBar, type NavItem } from "@/components/navigation-bar";
+import { Briefcase, Home, Mail, Pickaxe, User } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Jasmyre Portfolio",
@@ -79,6 +81,12 @@ export default function PortfolioLayout({
             enableSystem
             disableTransitionOnChange
           >
+            <NavigationBar
+              navItems={getNavItems()}
+              pageItems={getPageItems()}
+              enableBlock={true}
+              title="Jasmyre"
+            />
             {children}
           </ThemeProvider>
         </TRPCReactProvider>
@@ -86,4 +94,53 @@ export default function PortfolioLayout({
       </body>
     </html>
   );
+}
+
+function getPageItems() {
+  const pageItems: NavItem[] = [
+    {
+      href: "/",
+      name: "Portfolio",
+      icon: <Home className="h-4 w-4" />,
+    },
+  ];
+
+  return pageItems;
+}
+
+function getNavItems() {
+  const navItems: NavItem[] = [
+    {
+      href: "#home",
+      name: "Home",
+      icon: <Home className="h-4 w-4" />,
+    },
+    {
+      name: "About",
+      icon: <User className="h-4 w-4" />,
+      href: "#about",
+    },
+    {
+      name: "Services",
+      icon: <Pickaxe className="h-4 w-4" />,
+      href: "#services",
+    },
+    {
+      href: "#portfolio",
+      name: "Projects",
+      icon: <Briefcase className="h-4 w-4" />,
+    },
+    // {
+    //   name: "Testimonial",
+    //   icon: <MessageSquareText className="h-4 w-4" />,
+    //   href: "#testimonial",
+    // },
+    {
+      name: "Contact",
+      icon: <Mail className="h-4 w-4" />,
+      href: "#contact",
+    },
+  ];
+
+  return navItems;
 }

@@ -14,6 +14,12 @@ interface UseCloseOnBackOptions {
    * When the UI closes (via back gesture or programmatic close) focus will be restored there.
    */
   restoreFocusRef?: React.RefObject<HTMLElement | null>;
+
+  /**
+   * Optional ref which, when true during cleanup, prevents the hook from calling history.back()
+   * (useful when you intentionally close the UI before navigating).
+   */
+  skipHistoryOnCloseRef?: React.RefObject<boolean | null>;
 }
 
 /**
@@ -31,19 +37,20 @@ export function useCloseOnBack(
   const ignoreNextPop = useRef(false);
   const stateIdRef = useRef<number | null>(null);
   const closedByPopRef = useRef(false);
+  const openedHrefRef = useRef<string | null>(null);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-
     if (!isOpen) return;
 
-    // assign a unique id for this open instance
     const myId = ++globalStackId;
     stateIdRef.current = myId;
 
-    // push a history entry that we can detect later
+    // capture the href at the time we opened the UI
+    openedHrefRef.current = window.location.href;
+
+    // push a history entry we can detect later
     try {
-      // keep whatever existing state but annotate with our uiStackId
       const currentState = window.history.state as HistoryState;
       const nextState =
         typeof currentState === "object" && currentState !== null
@@ -55,18 +62,15 @@ export function useCloseOnBack(
     }
 
     const onPop = (e: PopStateEvent) => {
-      // If we are ignoring the next pop (because we called history.back programmatically), clear the flag and skip.
       if (ignoreNextPop.current) {
         ignoreNextPop.current = false;
         return;
       }
 
-      // Read state safely
       const st = (e.state as HistoryState) ?? null;
       const poppedId = st && typeof st === "object" ? st.uiStackId : undefined;
 
-      // If the popped state belongs to us, or if popped state is null (some browsers),
-      // treat it as a signal to close the UI.
+      // when the popped state belongs to us (or is null in some browsers) -> close UI
       if (poppedId === myId || poppedId === undefined) {
         closedByPopRef.current = true;
         onClose();
@@ -78,21 +82,32 @@ export function useCloseOnBack(
     return () => {
       window.removeEventListener("popstate", onPop);
 
-      // If the UI was closed by a popstate event, the history entry was already consumed.
-      // If we are cleaning up because the UI closed programmatically, remove our pushed entry.
+      // If the UI was closed by a popstate event, our pushed history entry was consumed.
+      // Otherwise (we closed programmatically), we should try to remove our pushed entry *only*
+      // if it's still present and it is safe to do so (i.e., href didn't change and caller didn't request skipping).
       if (!closedByPopRef.current) {
         try {
-          // If the current history state still references our id, go back one step to remove it.
           const curState = window.history.state as HistoryState;
           const curId =
             curState && typeof curState === "object"
               ? curState.uiStackId
               : undefined;
 
-          if (curId === myId) {
+          // decide whether to skip removal (consumer requested it)
+          const skipRequested = !!options?.skipHistoryOnCloseRef?.current;
+
+          // consider URL unchanged if the href is identical (if you want to ignore hash only, compare pathname+search)
+          const hrefUnchanged = openedHrefRef.current === window.location.href;
+
+          if (curId === myId && !skipRequested && hrefUnchanged) {
             // prevent the pop handler from interpreting this back as a user action
             ignoreNextPop.current = true;
             window.history.back();
+          } else {
+            // we won't call history.back(). In most cases that's OK:
+            // - if navigation happened while the UI was open, the stack still contains our uiStack entry,
+            //   which will behave reasonably for a back-to-close flow on the new page.
+            // - if caller requested skipping, they handle history themselves.
           }
         } catch {
           // ignore errors from history manipulation
@@ -111,6 +126,11 @@ export function useCloseOnBack(
         }
       }
     };
-    // onClose is stable if you memoize it in parent; include it here to be safe
-  }, [isOpen, onClose, options?.restoreFocusRef]);
+    // include options.skipHistoryOnCloseRef in deps to react to its changes (ref object identity won't change normally)
+  }, [
+    isOpen,
+    onClose,
+    options?.restoreFocusRef,
+    options?.skipHistoryOnCloseRef,
+  ]);
 }

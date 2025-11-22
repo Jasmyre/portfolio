@@ -406,7 +406,7 @@ export function ProjectsSection({
               className="px-6 py-2 font-medium max-md:w-full"
               asChild
             >
-              <Link href={"/projects"}>View All</Link>
+              <Link href={"/"}>Home</Link>
             </Button>
           </div>
         </div>

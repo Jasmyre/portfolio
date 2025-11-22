@@ -105,8 +105,12 @@ export function NavigationBar({
   const pathname = usePathname();
   const router = useRouter();
 
+  // ref to signal intentional navigation so the hook won't call history.back()
+  const navInProgressRef = useRef<boolean>(false);
+
   useCloseOnBack(isMobileMenuOpen, () => setIsMobileMenuOpen(false), {
     restoreFocusRef: buttonOpenerRef,
+    skipHistoryOnCloseRef: navInProgressRef,
   });
 
   // Ensure theme is mounted to avoid hydration mismatch
@@ -158,6 +162,35 @@ export function NavigationBar({
 
   const toggleTheme = () => {
     setTheme(theme === "dark" ? "light" : "dark");
+  };
+
+  // navigation handler used by mobile sidebar:
+  // mark navInProgressRef true so hook will skip history.back() while we intentionally close,
+  // close sheet first, then push the route after a short delay to allow cleanup/animation to finish.
+  const handleMobileNavigate = (href?: string) => {
+    if (!href) {
+      setIsMobileMenuOpen(false);
+      return;
+    }
+
+    // signal intentional navigation (so hook doesn't call history.back())
+    navInProgressRef.current = true;
+
+    // close sheet
+    setIsMobileMenuOpen(false);
+
+    // small delay to allow hook cleanup and close animation to run
+    // adjust timing to match your sheet close animation (150-250ms)
+    setTimeout(() => {
+      // unify promise/void behavior: Promise.resolve handles both cases without TS errors
+      Promise.resolve(router.push(href))
+        .then(() => {
+          navInProgressRef.current = false;
+        })
+        .catch(() => {
+          navInProgressRef.current = false;
+        });
+    }, 180);
   };
 
   return (
@@ -442,6 +475,7 @@ export function NavigationBar({
             <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
               <SheetTrigger asChild>
                 <Button
+                  ref={buttonOpenerRef}
                   variant="ghost"
                   size="icon"
                   aria-label="Toggle navigation menu"
@@ -460,7 +494,7 @@ export function NavigationBar({
                 </VisuallyHidden>
                 <MobileSidebar
                   navItems={navItems}
-                  onNavigate={() => setIsMobileMenuOpen(false)}
+                  onNavigate={handleMobileNavigate}
                   title={title}
                 />
               </SheetContent>
@@ -573,7 +607,7 @@ function MobileSidebar({
   title,
 }: {
   navItems: NavItem[];
-  onNavigate: () => void;
+  onNavigate: (href?: string) => void;
   title: string;
 }) {
   const { theme, setTheme } = useTheme();
@@ -643,7 +677,7 @@ function MobileSidebar({
             <Button
               variant="ghost"
               className="h-9 cursor-pointer justify-start px-3 opacity-80 transition-all duration-200 hover:opacity-100"
-              onClick={onNavigate}
+              onClick={() => onNavigate()}
               aria-label="Open settings"
             >
               <Settings className="mr-2 h-4 w-4 transition-transform duration-200" />
@@ -682,7 +716,7 @@ function MobileSidebar({
             </DropdownMenuLabel>
             <DropdownMenuSeparator />
             <DropdownMenuItem
-              onClick={onNavigate}
+              onClick={() => onNavigate("/profile")}
               className="relative cursor-pointer pl-8 opacity-80 transition-all duration-200 hover:opacity-100"
             >
               <div className="bg-sidebar-border absolute top-0 bottom-0 left-2 w-px"></div>
@@ -690,7 +724,7 @@ function MobileSidebar({
               <span>Profile</span>
             </DropdownMenuItem>
             <DropdownMenuItem
-              onClick={onNavigate}
+              onClick={() => onNavigate("/settings")}
               className="relative cursor-pointer pl-8 opacity-80 transition-all duration-200 hover:opacity-100"
             >
               <div className="bg-sidebar-border absolute top-0 bottom-0 left-2 w-px"></div>
@@ -699,7 +733,7 @@ function MobileSidebar({
             </DropdownMenuItem>
             <DropdownMenuSeparator />
             <DropdownMenuItem
-              onClick={onNavigate}
+              onClick={() => onNavigate("/logout")}
               className="relative cursor-pointer pl-8 opacity-80 transition-all duration-200 hover:opacity-100"
             >
               <div className="bg-sidebar-border absolute top-0 bottom-0 left-2 w-px"></div>
@@ -718,7 +752,7 @@ function MobileNavItem({
   onNavigate,
 }: {
   item: NavItem;
-  onNavigate: () => void;
+  onNavigate: (href?: string) => void;
 }) {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -737,25 +771,26 @@ function MobileNavItem({
             {item.name}
           </span>
           <ChevronRight
-            className={`h-4 w-4 transition-all duration-300 ${isOpen ? "rotate-90" : "rotate-0"}`}
+            className={`h-4 w-4 transition-all duration-300 ${
+              isOpen ? "rotate-90" : "rotate-0"
+            }`}
             aria-hidden="true"
           />
         </CollapsibleTrigger>
         <CollapsibleContent className="space-y-0.5">
           {item.children.map((child, childIndex) => (
-            <Link
+            <button
               key={childIndex}
-              href={child.href ?? "#"}
-              onClick={onNavigate}
-              className="hover:bg-sidebar-accent hover:text-sidebar-accent-foreground focus:bg-sidebar-accent focus:text-sidebar-accent-foreground relative flex cursor-pointer items-center gap-2 rounded-md px-2 py-1.5 pl-6 text-sm opacity-70 transition-all duration-200 hover:opacity-100 focus:ring-0 focus:outline-none"
-              tabIndex={0}
+              type="button"
+              onClick={() => onNavigate(child.href)}
+              className="hover:bg-sidebar-accent hover:text-sidebar-accent-foreground focus:bg-sidebar-accent focus:text-sidebar-accent-foreground relative flex w-full items-center gap-2 rounded-md px-2 py-1.5 pl-6 text-left text-sm opacity-70 transition-all duration-200 hover:opacity-100 focus:ring-0 focus:outline-none"
             >
               <div className="bg-sidebar-border absolute top-0 bottom-0 left-4 w-px"></div>
               <span className="transition-transform duration-200">
                 {child.icon}
               </span>
               {child.name}
-            </Link>
+            </button>
           ))}
         </CollapsibleContent>
       </Collapsible>
@@ -763,14 +798,13 @@ function MobileNavItem({
   }
 
   return (
-    <Link
-      href={item.href ?? "#"}
-      onClick={onNavigate}
-      className="hover:bg-sidebar-accent hover:text-sidebar-accent-foreground focus:bg-sidebar-accent focus:text-sidebar-accent-foreground flex cursor-pointer items-center gap-2 rounded-md px-2 py-1.5 text-sm font-medium opacity-80 transition-all duration-200 hover:opacity-100 focus:ring-0 focus:outline-none"
-      tabIndex={0}
+    <button
+      type="button"
+      onClick={() => onNavigate(item.href)}
+      className="hover:bg-sidebar-accent hover:text-sidebar-accent-foreground focus:bg-sidebar-accent focus:text-sidebar-accent-foreground flex w-full cursor-pointer items-center gap-2 rounded-md px-2 py-1.5 text-left text-sm font-medium opacity-80 transition-all duration-200 hover:opacity-100 focus:ring-0 focus:outline-none"
     >
       <span className="transition-transform duration-200">{item.icon}</span>
       {item.name}
-    </Link>
+    </button>
   );
 }

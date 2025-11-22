@@ -20,17 +20,11 @@ export default async function HomePage() {
   return (
     <HydrateClient>
       <div className="relative">
-        <NavigationBar
-          navItems={getNavItems()}
-          pageItems={getPageItems()}
-          enableBlock={false}
-          title="Jasmyre"
-        />
         <main className="min-h-[100vh] w-full" id="home">
           <HeroSection />
           <ContentSection />
           <ServicesSection />
-          <ProjectsSection />
+          <ProjectsSection limit={3} label={"Highlights"} />
           {/* <WallOfLoveSection /> */}
           <CTASection />
           <ContactSection />
@@ -39,53 +33,4 @@ export default async function HomePage() {
       </div>
     </HydrateClient>
   );
-}
-
-function getPageItems() {
-  const pageItems: NavItem[] = [
-    {
-      href: "/",
-      name: "Portfolio",
-      icon: <Home className="h-4 w-4" />,
-    },
-  ];
-
-  return pageItems;
-}
-
-function getNavItems() {
-  const navItems: NavItem[] = [
-    {
-      href: "#home",
-      name: "Home",
-      icon: <Home className="h-4 w-4" />,
-    },
-    {
-      name: "About",
-      icon: <User className="h-4 w-4" />,
-      href: "#about",
-    },
-    {
-      name: "Services",
-      icon: <Pickaxe className="h-4 w-4" />,
-      href: "#services",
-    },
-    {
-      href: "#portfolio",
-      name: "Projects",
-      icon: <Briefcase className="h-4 w-4" />,
-    },
-    // {
-    //   name: "Testimonial",
-    //   icon: <MessageSquareText className="h-4 w-4" />,
-    //   href: "#testimonial",
-    // },
-    {
-      name: "Contact",
-      icon: <Mail className="h-4 w-4" />,
-      href: "#contact",
-    },
-  ];
-
-  return navItems;
 }
