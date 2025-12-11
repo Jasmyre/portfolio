@@ -1,8 +1,8 @@
 "use client";
 
+import { Code2, Users, Zap } from "lucide-react";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
-import { Code2, Zap, Users } from "lucide-react";
 
 export default function ContentSection() {
   const approach = [
@@ -25,7 +25,7 @@ export default function ContentSection() {
       <div className="mx-auto max-w-7xl space-y-12 px-6 md:space-y-20">
         {/* Header */}
         <div className="text-center">
-          <h2 className="text-foreground text-3xl font-bold tracking-tight text-balance md:text-5xl">
+          <h2 className="text-balance font-bold text-3xl text-foreground tracking-tight md:text-5xl">
             About me
           </h2>
         </div>
@@ -36,18 +36,18 @@ export default function ContentSection() {
           <div className="relative flex items-center">
             <div className="relative aspect-square w-full overflow-hidden rounded-2xl bg-gradient-to-b from-zinc-300 to-transparent p-px dark:from-zinc-700">
               <Image
-                src="/dev.png"
-                className="hidden h-full w-full rounded-[15px] object-cover dark:block"
                 alt="Jasmyre Lanuza - Web Developer"
-                width={500}
+                className="hidden h-full w-full rounded-[15px] object-cover dark:block"
                 height={500}
+                src="/dev.png"
+                width={500}
               />
               <Image
-                src="/dev.png"
-                className="h-full w-full rounded-[15px] object-cover shadow-lg dark:hidden"
                 alt="Jasmyre Lanuza - Web Developer"
-                width={500}
+                className="h-full w-full rounded-[15px] object-cover shadow-lg dark:hidden"
                 height={500}
+                src="/dev.png"
+                width={500}
               />
             </div>
           </div>
@@ -57,18 +57,18 @@ export default function ContentSection() {
             {/* Intro */}
             <div className="space-y-4">
               <div className="flex flex-wrap items-center gap-2">
-                <span className="text-muted-foreground text-sm font-medium">
+                <span className="font-medium text-muted-foreground text-sm">
                   Full-Stack Developer
                 </span>
-                <Badge variant="outline" className="px-2 py-1 text-xs">
+                <Badge className="px-2 py-1 text-xs" variant="outline">
                   Philippines
                 </Badge>
               </div>
-              <p className="text-foreground text-lg leading-snug font-semibold">
+              <p className="font-semibold text-foreground text-lg leading-snug">
                 I build fast, clean websites with modern technologies that work
                 beautifully for users.
               </p>
-              <p className="text-muted-foreground text-base leading-relaxed">
+              <p className="text-base text-muted-foreground leading-relaxed">
                 Specializing in React, Next.js, and full-stack development. I
                 focus on creating intuitive interfaces and solid backend
                 solutions without unnecessary complexity.
@@ -80,11 +80,11 @@ export default function ContentSection() {
               {approach.map((item) => {
                 const IconComponent = item.icon;
                 return (
-                  <div key={item.text} className="flex items-center gap-3">
-                    <div className="bg-primary/10 shrink-0 rounded-lg p-2">
-                      <IconComponent className="text-primary h-5 w-5" />
+                  <div className="flex items-center gap-3" key={item.text}>
+                    <div className="shrink-0 rounded-lg bg-primary/10 p-2">
+                      <IconComponent className="h-5 w-5 text-primary" />
                     </div>
-                    <span className="text-foreground text-sm font-medium">
+                    <span className="font-medium text-foreground text-sm">
                       {item.text}
                     </span>
                   </div>
@@ -93,16 +93,16 @@ export default function ContentSection() {
             </div>
 
             {/* Skills Tags */}
-            <div className="border-border space-y-3 border-t pt-4">
-              <p className="text-muted-foreground text-xs font-medium tracking-wide uppercase">
+            <div className="space-y-3 border-border border-t pt-4">
+              <p className="font-medium text-muted-foreground text-xs uppercase tracking-wide">
                 Skills
               </p>
               <div className="flex flex-wrap gap-2">
                 {skills.map((skill) => (
                   <Badge
+                    className="px-3 py-1.5 text-xs"
                     key={skill}
                     variant="secondary"
-                    className="px-3 py-1.5 text-xs"
                   >
                     {skill}
                   </Badge>

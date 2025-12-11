@@ -1,9 +1,8 @@
-import { createTRPCRouter, publicProcedure } from "../trpc";
 import { TRPCError } from "@trpc/server";
+import OpenAI from "openai";
 import { z } from "zod";
 import { env } from "@/env";
-
-import OpenAI from "openai";
+import { createTRPCRouter, publicProcedure } from "../trpc";
 
 const openai = new OpenAI({
   baseURL: "https://openrouter.ai/api/v1",
@@ -25,7 +24,7 @@ export const aiRouter = createTRPCRouter({
 
         return completion;
 
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        // biome-ignore lint/suspicious/noExplicitAny: Can not explicitly type parameter
       } catch (err: any) {
         console.error("❌ Rate limit hit – retry later", err);
 

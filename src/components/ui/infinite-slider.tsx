@@ -1,8 +1,8 @@
 "use client";
-import { cn } from "@/lib/utils";
-import { useMotionValue, animate, motion } from "motion/react";
-import { useState, useEffect } from "react";
+import { animate, motion, useMotionValue } from "motion/react";
+import { useEffect, useState } from "react";
 import useMeasure from "react-use-measure";
+import { cn } from "@/lib/utils";
 
 export type InfiniteSliderProps = {
   children: React.ReactNode;
@@ -54,8 +54,8 @@ export function InfiniteSlider({
     } else {
       controls = animate(translation, [from, to], {
         ease: "linear",
-        duration: duration,
-        repeat: Infinity,
+        duration,
+        repeat: Number.POSITIVE_INFINITY,
         repeatType: "loop",
         repeatDelay: 0,
         onRepeat: () => {
@@ -94,6 +94,7 @@ export function InfiniteSlider({
     <div className={cn("overflow-hidden", className)}>
       <motion.div
         className="flex w-max"
+        ref={ref}
         style={{
           ...(direction === "horizontal"
             ? { x: translation }
@@ -101,7 +102,6 @@ export function InfiniteSlider({
           gap: `${gap}px`,
           flexDirection: direction === "horizontal" ? "row" : "column",
         }}
-        ref={ref}
         {...hoverProps}
       >
         {children}

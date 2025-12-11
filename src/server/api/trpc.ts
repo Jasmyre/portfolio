@@ -1,5 +1,3 @@
-import { redis } from "@/lib/redis";
-
 /**
  * YOU PROBABLY DON'T NEED TO EDIT THIS FILE, UNLESS:
  * 1. You want to modify request context (see Part 1).
@@ -11,6 +9,7 @@ import { redis } from "@/lib/redis";
 import { initTRPC, TRPCError } from "@trpc/server";
 import superjson from "superjson";
 import { ZodError } from "zod";
+import { redis } from "@/lib/redis";
 
 import { db } from "@/server/db";
 
@@ -26,12 +25,10 @@ import { db } from "@/server/db";
  *
  * @see https://trpc.io/docs/server/context
  */
-export const createTRPCContext = async (opts: { headers: Headers }) => {
-  return {
-    db,
-    ...opts,
-  };
-};
+export const createTRPCContext = async (opts: { headers: Headers }) => ({
+  db,
+  ...opts,
+});
 
 /**
  * 2. INITIALIZATION

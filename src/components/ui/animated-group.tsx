@@ -1,6 +1,6 @@
 "use client";
 import { motion, type Variants } from "motion/react";
-import React, { type ReactNode, type JSX } from "react";
+import React, { type JSX, type ReactNode } from "react";
 
 export type PresetType =
   | "fade"
@@ -120,23 +120,24 @@ function AnimatedGroup({
 
   const MotionComponent = React.useMemo(
     () => motion.create(as as keyof JSX.IntrinsicElements),
-    [as],
+    [as]
   );
   const MotionChild = React.useMemo(
     () => motion.create(asChild as keyof JSX.IntrinsicElements),
-    [asChild],
+    [asChild]
   );
 
   return (
     <MotionComponent
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once, amount }}
-      // animate="visible"
-      variants={containerVariants}
       className={className}
+      initial="hidden"
+      variants={containerVariants}
+      // animate="visible"
+      viewport={{ once, amount }}
+      whileInView="visible"
     >
       {React.Children.map(children, (child, index) => (
+        // biome-ignore lint/suspicious/noArrayIndexKey: Order of items can not be changed
         <MotionChild key={index} variants={itemVariants}>
           {child}
         </MotionChild>

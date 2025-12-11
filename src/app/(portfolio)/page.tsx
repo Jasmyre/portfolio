@@ -1,14 +1,11 @@
-import { NavigationBar, type NavItem } from "@/components/navigation-bar";
 import { ContactSection } from "@/components/pages/portfolio/contact-section";
+import ContentSection from "@/components/pages/portfolio/content-1";
 import { CTASection } from "@/components/pages/portfolio/cta";
+import FooterSection from "@/components/pages/portfolio/footer";
+import HeroSection from "@/components/pages/portfolio/hero-section";
 import { ProjectsSection } from "@/components/pages/portfolio/project-section";
 import { ServicesSection } from "@/components/pages/portfolio/service-section";
 import { HydrateClient } from "@/trpc/server";
-import { Briefcase, Home, Mail, Pickaxe, User } from "lucide-react";
-
-import ContentSection from "@/components/pages/portfolio/content-1";
-import FooterSection from "@/components/pages/portfolio/footer";
-import HeroSection from "@/components/pages/portfolio/hero-section";
 
 export default async function HomePage() {
   // const hello = await api.post.hello({ text: "from tRPC Test" });
@@ -24,7 +21,7 @@ export default async function HomePage() {
           <HeroSection />
           <ContentSection />
           <ServicesSection />
-          <ProjectsSection limit={3} label={"Highlights"} />
+          <ProjectsSection label={"Highlights"} limit={3} />
           {/* <WallOfLoveSection /> */}
           <CTASection />
           <ContactSection />

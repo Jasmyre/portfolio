@@ -1,17 +1,17 @@
-import { NavigationBar, type NavItem } from "@/components/navigation-bar";
-import { FeatureSection } from "@/components/pages/anixplorer/feature-section";
-import { HydrateClient } from "@/trpc/server";
-import { HeroSection } from "@/components/pages/anixplorer/hero-section";
 import { Home } from "lucide-react";
+import { type NavItem, NavigationBar } from "@/components/navigation-bar";
+import { FeatureSection } from "@/components/pages/anixplorer/feature-section";
+import { HeroSection } from "@/components/pages/anixplorer/hero-section";
+import { HydrateClient } from "@/trpc/server";
 
 export default async function AniXplorerPage() {
   return (
     <HydrateClient>
       <div className="relative">
         <NavigationBar
+          enableBlock={true}
           navItems={getNavItems()}
           pageItems={getPageItems()}
-          enableBlock={true}
           title="AniXplorer"
         />
         <HeroSection />

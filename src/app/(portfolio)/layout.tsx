@@ -1,14 +1,13 @@
 import "@/styles/globals.css";
 
-import { type Metadata } from "next";
-import { Geist } from "next/font/google";
-
-import { TRPCReactProvider } from "@/trpc/react";
-import { ThemeProvider } from "@/components/theme-provider";
 import { Analytics } from "@vercel/analytics/next";
-import { env } from "@/env";
-import { NavigationBar, type NavItem } from "@/components/navigation-bar";
 import { Briefcase, Home, Mail, Pickaxe, User } from "lucide-react";
+import type { Metadata } from "next";
+import { Geist } from "next/font/google";
+import { type NavItem, NavigationBar } from "@/components/navigation-bar";
+import { ThemeProvider } from "@/components/theme-provider";
+import { env } from "@/env";
+import { TRPCReactProvider } from "@/trpc/react";
 
 export const metadata: Metadata = {
   title: "Jasmyre Portfolio",
@@ -72,19 +71,19 @@ export default function PortfolioLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${geist.variable}`} suppressHydrationWarning>
+    <html className={`${geist.variable}`} lang="en" suppressHydrationWarning>
       <body>
         <TRPCReactProvider>
           <ThemeProvider
             attribute="class"
             defaultTheme="dark"
-            enableSystem
             disableTransitionOnChange
+            enableSystem
           >
             <NavigationBar
+              enableBlock={true}
               navItems={getNavItems()}
               pageItems={getPageItems()}
-              enableBlock={true}
               title="Jasmyre"
             />
             {children}

@@ -8,7 +8,7 @@ type HistoryState = {
   [key: string]: unknown;
 } | null;
 
-interface UseCloseOnBackOptions {
+type UseCloseOnBackOptions = {
   /**
    * Optional ref to the element that opened the UI.
    * When the UI closes (via back gesture or programmatic close) focus will be restored there.
@@ -20,7 +20,7 @@ interface UseCloseOnBackOptions {
    * (useful when you intentionally close the UI before navigating).
    */
   skipHistoryOnCloseRef?: React.RefObject<boolean | null>;
-}
+};
 
 /**
  * Hook: close on browser back/popstate instead of navigating away.
@@ -32,7 +32,7 @@ interface UseCloseOnBackOptions {
 export function useCloseOnBack(
   isOpen: boolean,
   onClose: () => void,
-  options?: UseCloseOnBackOptions,
+  options?: UseCloseOnBackOptions
 ) {
   const ignoreNextPop = useRef(false);
   const stateIdRef = useRef<number | null>(null);
@@ -40,10 +40,16 @@ export function useCloseOnBack(
   const openedHrefRef = useRef<string | null>(null);
 
   useEffect(() => {
-    if (typeof window === "undefined") return;
-    if (!isOpen) return;
+    if (typeof window === "undefined") {
+      return;
+    }
 
-    const myId = ++globalStackId;
+    if (!isOpen) {
+      return;
+    }
+
+    globalStackId += 1;
+    const myId = globalStackId;
     stateIdRef.current = myId;
 
     // capture the href at the time we opened the UI
@@ -85,7 +91,10 @@ export function useCloseOnBack(
       // If the UI was closed by a popstate event, our pushed history entry was consumed.
       // Otherwise (we closed programmatically), we should try to remove our pushed entry *only*
       // if it's still present and it is safe to do so (i.e., href didn't change and caller didn't request skipping).
-      if (!closedByPopRef.current) {
+      if (closedByPopRef.current) {
+        // reset the flag for future opens
+        closedByPopRef.current = false;
+      } else {
         try {
           const curState = window.history.state as HistoryState;
           const curId =
@@ -112,9 +121,6 @@ export function useCloseOnBack(
         } catch {
           // ignore errors from history manipulation
         }
-      } else {
-        // reset the flag for future opens
-        closedByPopRef.current = false;
       }
 
       // restore focus to opener if provided

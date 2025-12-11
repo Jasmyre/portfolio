@@ -1,7 +1,6 @@
-import z from "zod";
-
 import { TRPCError } from "@trpc/server";
 import { JikanClient } from "@tutkli/jikan-ts";
+import z from "zod";
 import {
   createTRPCRouter,
   publicProcedure,
@@ -44,7 +43,7 @@ export const anixplorerRouter = createTRPCRouter({
           page: z.number().min(1).default(defaultPage),
           limit: z.number().min(1).max(25).default(defaultLimit),
         })
-        .optional(),
+        .optional()
     )
     .query(async ({ input }) => {
       try {
@@ -79,7 +78,7 @@ export const anixplorerRouter = createTRPCRouter({
           page: z.number().min(1).default(defaultPage),
           limit: z.number().min(1).max(25).default(defaultLimit),
         })
-        .optional(),
+        .optional()
     )
     .query(async ({ input }) => {
       try {

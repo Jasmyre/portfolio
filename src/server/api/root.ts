@@ -1,7 +1,7 @@
-import { createCallerFactory, createTRPCRouter } from "@/server/api/trpc";
-import { anixplorerRouter } from "./routers/anixplorer";
 import { postRouter } from "@/server/api/routers/post";
+import { createCallerFactory, createTRPCRouter } from "@/server/api/trpc";
 import { aiRouter } from "./routers/ai";
+import { anixplorerRouter } from "./routers/anixplorer";
 
 /**
  * This is the primary router for your server.

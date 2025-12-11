@@ -1,11 +1,11 @@
 import "@/styles/anixplorer/index.css";
 
-import { type Metadata } from "next";
+import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 
 import { ThemeProvider } from "@/components/theme-provider";
-import { TRPCReactProvider } from "@/trpc/react";
 import { env } from "@/env";
+import { TRPCReactProvider } from "@/trpc/react";
 
 export const metadata: Metadata = {
   title: "AniXplorer | Jasmyre Andrei Lanuza",
@@ -60,14 +60,14 @@ export default function PortfolioLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${geist.variable}`} suppressHydrationWarning>
+    <html className={`${geist.variable}`} lang="en" suppressHydrationWarning>
       <body>
         <TRPCReactProvider>
           <ThemeProvider
             attribute="class"
             defaultTheme="dark"
-            enableSystem
             disableTransitionOnChange
+            enableSystem
           >
             {children}
           </ThemeProvider>

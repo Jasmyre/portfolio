@@ -7,10 +7,10 @@ export const HeroSection = () => {
       <div className="relative mx-auto flex h-full max-w-7xl flex-col items-center justify-center gap-16 px-6 lg:min-h-screen lg:flex-row">
         <div className="flex min-h-[75vh] max-w-xl flex-1 flex-col justify-center space-y-8 lg:h-full lg:min-h-fit">
           <div className="relative space-y-4">
-            <h1 className="text-6xl leading-tight font-bold text-pretty">
+            <h1 className="text-pretty font-bold text-6xl leading-tight">
               Your Gateway to the World of Anime
             </h1>
-            <p className="text-muted-foreground text-xl leading-8 font-normal">
+            <p className="font-normal text-muted-foreground text-xl leading-8">
               Discover and explore a comprehensive database of anime titles,
               genres, and characters powered by the Jikan API.
             </p>

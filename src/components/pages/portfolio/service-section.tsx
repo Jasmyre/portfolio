@@ -1,6 +1,10 @@
 "use client";
 
-import { services, type Service } from "@/data/services";
+import { CheckCircle2 } from "lucide-react";
+import type { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { type Dispatch, type SetStateAction, useRef, useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -18,13 +22,9 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { type Service, services } from "@/data/services";
 import { useCloseOnBack } from "@/hooks/use-close-on-back";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { CheckCircle2 } from "lucide-react";
-import { useRouter } from "next/navigation";
-import { useRef, useState } from "react";
-
-import Link from "next/link";
 
 function ServiceCard({ service }: { service: Service }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -37,148 +37,26 @@ function ServiceCard({ service }: { service: Service }) {
     restoreFocusRef: buttonOpenerRef,
   });
 
-  const ServiceCardContent = () => (
-    <Card className="group bg-card relative h-full cursor-pointer overflow-hidden border transition-all duration-300 hover:shadow-lg">
-      <CardHeader>
-        <div className="flex items-start justify-start">
-          <div className="bg-primary/10 group-hover:bg-primary/20 rounded-lg p-3 transition-colors duration-300">
-            {service.icon && <service.icon className="text-primary h-6 w-6" />}
-          </div>
-        </div>
-        <CardTitle className="text-foreground group-hover:text-primary mt-4 text-xl font-bold transition-colors">
-          {service.title}
-        </CardTitle>
-      </CardHeader>
-
-      <CardContent className="flex flex-1 flex-col space-y-4">
-        <div className="flex-1 space-y-4">
-          <p className="text-muted-foreground line-clamp-2 text-sm leading-relaxed">
-            {service.description}
-          </p>
-          <div className="flex flex-wrap justify-between gap-1.5 truncate">
-            <div className="flex flex-wrap gap-1.5 truncate">
-              {service.technologies.slice(0, 1).map((tech) => (
-                <Badge
-                  key={tech}
-                  variant="secondary"
-                  className="px-2.5 py-1 text-xs font-medium"
-                >
-                  {tech}
-                </Badge>
-              ))}
-              {service.technologies.length > 1 && (
-                <Badge
-                  variant="outline"
-                  className="px-2.5 py-1 text-xs font-medium"
-                >
-                  +{service.technologies.length - 1}
-                </Badge>
-              )}
-            </div>
-            <div>
-              <Button
-                size="sm"
-                variant="ghost"
-                className="text-primary h-8 w-max cursor-pointer border px-3 text-xs font-medium"
-              >
-                Learn More
-              </Button>
-            </div>
-          </div>
-        </div>
-      </CardContent>
-    </Card>
-  );
-
-  const ServiceDetails = () => (
-    <div className="space-y-6">
-      <div className="space-y-4">
-        <p className="text-muted-foreground text-base leading-relaxed">
-          {service.longDescription}
-        </p>
-      </div>
-
-      <div className="space-y-4">
-        <h4 className="flex items-center text-lg font-bold">
-          <CheckCircle2 className="text-primary mr-2 h-5 w-5" />
-          Key Highlights
-        </h4>
-        <ul className="space-y-3">
-          {service.highlights.map((highlight, idx) => (
-            <li key={idx} className="flex items-start">
-              <div className="bg-primary mt-2.5 mr-4 h-2 w-2 flex-shrink-0 rounded-full" />
-              <span className="text-muted-foreground leading-relaxed">
-                {highlight}
-              </span>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <div className="space-y-4">
-        <h4 className="text-lg font-bold">Deliverables</h4>
-        <div className="flex flex-wrap gap-2">
-          {service.deliverables.map((deliverable, idx) => (
-            <Badge
-              key={idx}
-              variant="secondary"
-              className="px-3 py-1.5 font-medium"
-            >
-              {deliverable}
-            </Badge>
-          ))}
-        </div>
-      </div>
-
-      <div className="space-y-4">
-        <h4 className="text-lg font-bold">Technologies</h4>
-        <div className="flex flex-wrap gap-2">
-          {service.technologies.map((tech, idx) => (
-            <Badge
-              key={idx}
-              variant="outline"
-              className="px-3 py-1.5 font-medium"
-            >
-              {tech}
-            </Badge>
-          ))}
-        </div>
-      </div>
-
-      <div className="border-border flex gap-3 border-t pt-6">
-        <Button className="flex-1 cursor-pointer" size="lg" asChild>
-          <Link
-            href={"#contact"}
-            onClick={() => {
-              setIsOpen(false);
-              setTimeout(() => {
-                router.push("#contact");
-              }, 100);
-            }}
-          >
-            Let&apos;s Discuss
-          </Link>
-        </Button>
-      </div>
-    </div>
-  );
-
   if (isMobile) {
     return (
-      <Drawer open={isOpen} onOpenChange={setIsOpen}>
-        <DrawerTrigger role="button" ref={buttonOpenerRef} asChild>
+      <Drawer onOpenChange={setIsOpen} open={isOpen}>
+        <DrawerTrigger asChild ref={buttonOpenerRef} role="button">
           <div className="h-full">
-            <ServiceCardContent />
+            <ServiceCardContent service={service} />
           </div>
         </DrawerTrigger>
         <DrawerContent className="max-h-[90vh]">
           <DrawerHeader className="px-6 pb-6">
-            <DrawerTitle className="text-xl font-bold">
+            <DrawerTitle className="font-bold text-xl">
               {service.title}
             </DrawerTitle>
           </DrawerHeader>
           <div className="overflow-y-auto px-6 pb-8">
-            <ServiceDetails />
+            <ServiceDetails
+              router={router}
+              service={service}
+              setIsOpen={setIsOpen}
+            />
           </div>
         </DrawerContent>
       </Drawer>
@@ -186,18 +64,22 @@ function ServiceCard({ service }: { service: Service }) {
   }
 
   return (
-    <Sheet open={isOpen} onOpenChange={setIsOpen}>
-      <SheetTrigger role="button" asChild>
+    <Sheet onOpenChange={setIsOpen} open={isOpen}>
+      <SheetTrigger asChild role="button">
         <div className="h-full">
-          <ServiceCardContent />
+          <ServiceCardContent service={service} />
         </div>
       </SheetTrigger>
       <SheetContent className="w-full max-w-2xl overflow-y-auto p-0 sm:max-w-3xl">
-        <SheetHeader className="border-border bg-background/95 sticky top-0 z-10 border-b p-6 pb-4 backdrop-blur-sm">
-          <SheetTitle className="text-xl font-bold">{service.title}</SheetTitle>
+        <SheetHeader className="sticky top-0 z-10 border-border border-b bg-background/95 p-6 pb-4 backdrop-blur-sm">
+          <SheetTitle className="font-bold text-xl">{service.title}</SheetTitle>
         </SheetHeader>
         <div className="p-6">
-          <ServiceDetails />
+          <ServiceDetails
+            router={router}
+            service={service}
+            setIsOpen={setIsOpen}
+          />
         </div>
       </SheetContent>
     </Sheet>
@@ -210,10 +92,10 @@ export function ServicesSection() {
       <div className="mx-auto max-w-7xl space-y-12 px-6 md:space-y-20">
         {/* Header */}
         <div className="mx-auto max-w-3xl space-y-4 text-center">
-          <h2 className="text-foreground text-3xl font-bold tracking-tight text-balance md:text-5xl">
+          <h2 className="text-balance font-bold text-3xl text-foreground tracking-tight md:text-5xl">
             Services I Offer
           </h2>
-          <p className="text-muted-foreground text-lg leading-relaxed text-pretty">
+          <p className="text-pretty text-lg text-muted-foreground leading-relaxed">
             From concept to deployment, I provide comprehensive web development
             services tailored to bring your vision to life with precision and
             creativity.
@@ -230,3 +112,139 @@ export function ServicesSection() {
     </section>
   );
 }
+
+const ServiceDetails = ({
+  service,
+  setIsOpen,
+  router,
+}: {
+  service: Service;
+  setIsOpen: Dispatch<SetStateAction<boolean>>;
+  router: AppRouterInstance;
+}) => (
+  <div className="space-y-6">
+    <div className="space-y-4">
+      <p className="text-base text-muted-foreground leading-relaxed">
+        {service.longDescription}
+      </p>
+    </div>
+
+    <div className="space-y-4">
+      <h4 className="flex items-center font-bold text-lg">
+        <CheckCircle2 className="mr-2 h-5 w-5 text-primary" />
+        Key Highlights
+      </h4>
+      <ul className="space-y-3">
+        {service.highlights.map((highlight, index) => (
+          <li className="flex items-start" key={index}>
+            <div className="mt-2.5 mr-4 h-2 w-2 shrink-0 rounded-full bg-primary" />
+            <span className="text-muted-foreground leading-relaxed">
+              {highlight}
+            </span>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <div className="space-y-4">
+      <h4 className="font-bold text-lg">Deliverables</h4>
+      <div className="flex flex-wrap gap-2">
+        {service.deliverables.map((deliverable, index) => (
+          <Badge
+            className="px-3 py-1.5 font-medium"
+            key={index}
+            variant="secondary"
+          >
+            {deliverable}
+          </Badge>
+        ))}
+      </div>
+    </div>
+
+    <div className="space-y-4">
+      <h4 className="font-bold text-lg">Technologies</h4>
+      <div className="flex flex-wrap gap-2">
+        {service.technologies.map((tech, index) => (
+          <Badge
+            className="px-3 py-1.5 font-medium"
+            key={index}
+            variant="outline"
+          >
+            {tech}
+          </Badge>
+        ))}
+      </div>
+    </div>
+
+    <div className="flex gap-3 border-border border-t pt-6">
+      <Button asChild className="flex-1 cursor-pointer" size="lg">
+        <Link
+          href={"#contact"}
+          onClick={() => {
+            setIsOpen(false);
+            setTimeout(() => {
+              router.push("#contact");
+            }, 100);
+          }}
+        >
+          Let&apos;s Discuss
+        </Link>
+      </Button>
+    </div>
+  </div>
+);
+
+const ServiceCardContent = ({ service }: { service: Service }) => (
+  <Card className="group relative h-full cursor-pointer overflow-hidden border bg-card transition-all duration-300 hover:shadow-lg">
+    <CardHeader>
+      <div className="flex items-start justify-start">
+        <div className="rounded-lg bg-primary/10 p-3 transition-colors duration-300 group-hover:bg-primary/20">
+          {service.icon ? (
+            <service.icon className="h-6 w-6 text-primary" />
+          ) : null}
+        </div>
+      </div>
+      <CardTitle className="mt-4 font-bold text-foreground text-xl transition-colors group-hover:text-primary">
+        {service.title}
+      </CardTitle>
+    </CardHeader>
+
+    <CardContent className="flex flex-1 flex-col space-y-4">
+      <div className="flex-1 space-y-4">
+        <p className="line-clamp-2 text-muted-foreground text-sm leading-relaxed">
+          {service.description}
+        </p>
+        <div className="flex flex-wrap justify-between gap-1.5 truncate">
+          <div className="flex flex-wrap gap-1.5 truncate">
+            {service.technologies.slice(0, 1).map((tech) => (
+              <Badge
+                className="px-2.5 py-1 font-medium text-xs"
+                key={tech}
+                variant="secondary"
+              >
+                {tech}
+              </Badge>
+            ))}
+            {service.technologies.length > 1 && (
+              <Badge
+                className="px-2.5 py-1 font-medium text-xs"
+                variant="outline"
+              >
+                +{service.technologies.length - 1}
+              </Badge>
+            )}
+          </div>
+          <div>
+            <Button
+              className="h-8 w-max cursor-pointer border px-3 font-medium text-primary text-xs"
+              size="sm"
+              variant="ghost"
+            >
+              Learn More
+            </Button>
+          </div>
+        </div>
+      </div>
+    </CardContent>
+  </Card>
+);

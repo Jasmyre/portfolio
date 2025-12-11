@@ -1,6 +1,6 @@
 import { Code2, Database, Globe, Palette, Smartphone, Zap } from "lucide-react";
 
-export interface Service {
+export type Service = {
   id: number;
   title: string;
   description: string;
@@ -9,7 +9,7 @@ export interface Service {
   highlights: string[];
   deliverables: string[];
   technologies: string[];
-}
+};
 
 export const services: Service[] = [
   {

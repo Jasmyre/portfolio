@@ -1,9 +1,9 @@
+import { Github, Linkedin, Mail, MapPin, Phone, Twitter } from "lucide-react";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Github, Linkedin, Mail, MapPin, Phone, Twitter } from "lucide-react";
-import Link from "next/link";
 
 const socialLinks = [
   { icon: Github, href: "#", label: "GitHub" },
@@ -19,10 +19,10 @@ export function ContactSection() {
           {/* Contact Information */}
           <div className="flex-1/2 space-y-8">
             <div>
-              <h3 className="text-foreground mb-6 font-sans text-2xl font-semibold">
+              <h3 className="mb-6 font-sans font-semibold text-2xl text-foreground">
                 Let&apos;s work together
               </h3>
-              <p className="text-muted-foreground mb-8 text-lg leading-relaxed">
+              <p className="mb-8 text-lg text-muted-foreground leading-relaxed">
                 Whether you have a project in mind, want to collaborate, or just
                 want to say hello, I&apos;m always excited to connect with
                 fellow creators and innovators.
@@ -31,11 +31,11 @@ export function ContactSection() {
 
             <div className="space-y-6">
               <div className="group flex items-center space-x-4">
-                <div className="bg-primary/10 group-hover:bg-primary/20 flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg transition-colors">
-                  <Mail className="text-primary h-5 w-5" />
+                <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg bg-primary/10 transition-colors group-hover:bg-primary/20">
+                  <Mail className="h-5 w-5 text-primary" />
                 </div>
                 <div>
-                  <p className="text-foreground font-medium">Email</p>
+                  <p className="font-medium text-foreground">Email</p>
                   <p className="text-muted-foreground">
                     lanuzajasmyreandrei@gmail.com
                   </p>
@@ -43,11 +43,11 @@ export function ContactSection() {
               </div>
 
               <div className="group flex items-center space-x-4">
-                <div className="bg-primary/10 group-hover:bg-primary/20 flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg transition-colors">
-                  <MapPin className="text-primary h-5 w-5" />
+                <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg bg-primary/10 transition-colors group-hover:bg-primary/20">
+                  <MapPin className="h-5 w-5 text-primary" />
                 </div>
                 <div>
-                  <p className="text-foreground font-medium">Location</p>
+                  <p className="font-medium text-foreground">Location</p>
                   <p className="text-muted-foreground">
                     Philippines, Rizal, Antipolo City
                   </p>
@@ -55,11 +55,11 @@ export function ContactSection() {
               </div>
 
               <div className="group flex items-center space-x-4">
-                <div className="bg-primary/10 group-hover:bg-primary/20 flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg transition-colors">
-                  <Phone className="text-primary h-5 w-5" />
+                <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg bg-primary/10 transition-colors group-hover:bg-primary/20">
+                  <Phone className="h-5 w-5 text-primary" />
                 </div>
                 <div>
-                  <p className="text-foreground font-medium">Phone</p>
+                  <p className="font-medium text-foreground">Phone</p>
                   <p className="text-muted-foreground">+1 (555) 123-4567</p>
                 </div>
               </div>
@@ -67,15 +67,15 @@ export function ContactSection() {
 
             {/* Social Links */}
             <div className="hidden pt-8 lg:block">
-              <h4 className="text-muted-foreground mb-4 text-lg font-medium">
+              <h4 className="mb-4 font-medium text-lg text-muted-foreground">
                 Links
               </h4>
               <div className="flex space-x-4">
                 {socialLinks.map((social) => (
                   <div key={social.label}>
                     <Link
+                      className="flex h-12 w-12 items-center justify-center rounded-lg border border-border bg-card transition-all duration-200 hover:scale-105 hover:bg-primary hover:text-primary-foreground"
                       href={social.href}
-                      className="bg-card border-border hover:bg-primary hover:text-primary-foreground flex h-12 w-12 items-center justify-center rounded-lg border transition-all duration-200 hover:scale-105"
                     >
                       <social.icon className="h-5 w-5" />
                       <span className="sr-only">{social.label}</span>
@@ -90,86 +90,86 @@ export function ContactSection() {
           <div className="flex-1/2">
             <Card className="border-border bg-card">
               <CardContent className="p-8">
-                <h3 className="text-foreground mb-6 font-sans text-2xl font-semibold">
+                <h3 className="mb-6 font-sans font-semibold text-2xl text-foreground">
                   Send a Message
                 </h3>
                 <form className="space-y-6">
                   <div className="grid gap-4 sm:grid-cols-2">
                     <div>
                       <label
+                        className="mb-2 block font-medium text-foreground text-sm"
                         htmlFor="firstName"
-                        className="text-foreground mb-2 block text-sm font-medium"
                       >
                         First Name
                       </label>
                       <Input
+                        className="border-border bg-background focus:border-primary focus:ring-primary/20"
                         id="firstName"
                         placeholder="John"
-                        className="bg-background border-border focus:border-primary focus:ring-primary/20"
                       />
                     </div>
                     <div>
                       <label
+                        className="mb-2 block font-medium text-foreground text-sm"
                         htmlFor="lastName"
-                        className="text-foreground mb-2 block text-sm font-medium"
                       >
                         Last Name
                       </label>
                       <Input
+                        className="border-border bg-background focus:border-primary focus:ring-primary/20"
                         id="lastName"
                         placeholder="Doe"
-                        className="bg-background border-border focus:border-primary focus:ring-primary/20"
                       />
                     </div>
                   </div>
 
                   <div>
                     <label
+                      className="mb-2 block font-medium text-foreground text-sm"
                       htmlFor="email"
-                      className="text-foreground mb-2 block text-sm font-medium"
                     >
                       Email
                     </label>
                     <Input
+                      className="border-border bg-background focus:border-primary focus:ring-primary/20"
                       id="email"
-                      type="email"
                       placeholder="john@example.com"
-                      className="bg-background border-border focus:border-primary focus:ring-primary/20"
+                      type="email"
                     />
                   </div>
 
                   <div>
                     <label
+                      className="mb-2 block font-medium text-foreground text-sm"
                       htmlFor="subject"
-                      className="text-foreground mb-2 block text-sm font-medium"
                     >
                       Subject
                     </label>
                     <Input
+                      className="border-border bg-background focus:border-primary focus:ring-primary/20"
                       id="subject"
                       placeholder="Let's discuss your project"
-                      className="bg-background border-border focus:border-primary focus:ring-primary/20"
                     />
                   </div>
 
                   <div>
                     <label
+                      className="mb-2 block font-medium text-foreground text-sm"
                       htmlFor="message"
-                      className="text-foreground mb-2 block text-sm font-medium"
                     >
                       Message
                     </label>
                     <Textarea
+                      className="resize-none border-border bg-background focus:border-primary focus:ring-primary/20"
                       id="message"
-                      rows={5}
                       placeholder="Tell me about your project, timeline, and any specific requirements..."
-                      className="bg-background border-border focus:border-primary focus:ring-primary/20 resize-none"
+                      rows={5}
                     />
                   </div>
 
                   <Button
+                    className="w-full cursor-pointer bg-primary py-3 font-medium text-base text-primary-foreground hover:bg-primary/90"
                     type="submit"
-                    className="bg-primary hover:bg-primary/90 text-primary-foreground w-full cursor-pointer py-3 text-base font-medium"
                   >
                     Send Message
                   </Button>

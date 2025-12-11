@@ -1,6 +1,6 @@
+import { AnimatedGroup } from "@/components/ui/animated-group";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardContent } from "@/components/ui/card";
-import { AnimatedGroup } from "@/components/ui/animated-group";
 
 type Testimonial = {
   name: string;
@@ -49,7 +49,7 @@ const testimonials: Testimonial[] = [
 
 const chunkArray = (
   array: Testimonial[],
-  chunkSize: number,
+  chunkSize: number
 ): Testimonial[][] => {
   const result: Testimonial[][] = [];
   for (let i = 0; i < array.length; i += chunkSize) {
@@ -60,7 +60,7 @@ const chunkArray = (
 
 const testimonialChunks = chunkArray(
   testimonials,
-  Math.ceil(testimonials.length / 3),
+  Math.ceil(testimonials.length / 3)
 );
 
 export default function WallOfLoveSection() {
@@ -70,25 +70,25 @@ export default function WallOfLoveSection() {
         <div className="mx-auto max-w-7xl px-6">
           <div className="text-center">
             <AnimatedGroup preset="slide">
-              <h2 className="text-muted-foreground text-center text-3xl font-semibold text-balance md:text-4xl">
+              <h2 className="text-balance text-center font-semibold text-3xl text-muted-foreground md:text-4xl">
                 feedbacks
               </h2>
             </AnimatedGroup>
           </div>
           <div className="mt-8 grid gap-4 sm:grid-cols-2 md:mt-12 lg:grid-cols-3">
             {testimonialChunks.map((chunk, chunkIndex) => (
-              <div key={chunkIndex} className="space-y-4">
+              <div className="space-y-4" key={chunkIndex}>
                 {chunk.map(({ name, role, quote, image }, index) => (
-                  <AnimatedGroup preset="slide" key={index} once={true}>
+                  <AnimatedGroup key={index} once={true} preset="slide">
                     <Card>
                       <CardContent className="grid grid-cols-[auto_1fr] gap-3 pt-6">
                         <Avatar className="size-9">
                           <AvatarImage
                             alt={name}
-                            src={image}
-                            loading="lazy"
-                            width="120"
                             height="120"
+                            loading="lazy"
+                            src={image}
+                            width="120"
                           />
                           <AvatarFallback>ST</AvatarFallback>
                         </Avatar>
@@ -96,7 +96,7 @@ export default function WallOfLoveSection() {
                         <div>
                           <h3 className="font-medium">{name}</h3>
 
-                          <span className="text-muted-foreground block text-sm tracking-wide">
+                          <span className="block text-muted-foreground text-sm tracking-wide">
                             {role}
                           </span>
 

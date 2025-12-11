@@ -1,4 +1,4 @@
-export interface Project {
+export type Project = {
   id: string;
   title: string;
   description: string;
@@ -18,7 +18,7 @@ export interface Project {
     seo?: number;
   };
   highlights: string[];
-}
+};
 
 export const projects: Project[] = [
   {
