@@ -297,7 +297,7 @@ const ProjectContent = ({
         </div>
         <div className="flex items-center justify-between pt-2">
           <div className="flex gap-2">
-            {project.githubUrl ?? (
+            {project.githubUrl ? (
               <Button
                 className="h-8 w-8 cursor-pointer bg-transparent p-0"
                 size="sm"
@@ -305,7 +305,7 @@ const ProjectContent = ({
               >
                 <Github className="h-3.5 w-3.5" />
               </Button>
-            )}
+            ) : null}
             {project.liveUrl ? (
               <Button
                 className="h-8 w-8 cursor-pointer bg-transparent p-0"

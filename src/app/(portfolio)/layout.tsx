@@ -110,23 +110,23 @@ function getPageItems() {
 function getNavItems() {
   const navItems: NavItem[] = [
     {
-      href: "#home",
       name: "Home",
+      href: "/#home",
       icon: <Home className="h-4 w-4" />,
     },
     {
       name: "About",
+      href: "/#about",
       icon: <User className="h-4 w-4" />,
-      href: "#about",
     },
     {
       name: "Services",
+      href: "/#services",
       icon: <Pickaxe className="h-4 w-4" />,
-      href: "#services",
     },
     {
-      href: "#portfolio",
       name: "Projects",
+      href: "/#portfolio",
       icon: <Briefcase className="h-4 w-4" />,
     },
     // {
@@ -136,8 +136,8 @@ function getNavItems() {
     // },
     {
       name: "Contact",
+      href: "/#contact",
       icon: <Mail className="h-4 w-4" />,
-      href: "#contact",
     },
   ];
 

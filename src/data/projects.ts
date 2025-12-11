@@ -4,7 +4,7 @@ export type Project = {
   description: string;
   image: string;
   technologies: string[];
-  category: string;
+  category: "Web App" | "Game Dev" | "Web Design";
   year: string;
   status: "completed" | "in-progress" | "archived";
   githubUrl?: string;
@@ -37,7 +37,7 @@ export const projects: Project[] = [
       "Tailwind",
       "Shadcn ui",
     ],
-    category: "Web Application",
+    category: "Web App",
     year: "2025",
     status: "completed",
     githubUrl: "https://github.com/Jasmyre/ictquest",
@@ -63,7 +63,7 @@ export const projects: Project[] = [
       "This game is a next-level spin on the classic rock-paper-scissors. It's not just about picking rock, paper, or scissors—there's an entire RPG-style system working behind the scenes. You'll need to manage stats like strength, precision, crit, speed, fatigue, and momentum, which all affect every move in combat. This makes each battle more strategic, dynamic, and unpredictable.",
     image: "/banner/fateshaper.png",
     technologies: ["Vite", "Typescript", "Tailwind"],
-    category: "Game dev",
+    category: "Game Dev",
     year: "2024",
     status: "completed",
     githubUrl: "https://github.com/Jasmyre/fateshaper",
@@ -84,7 +84,7 @@ export const projects: Project[] = [
       "Search4Movies is a website that lets users quickly look up movies and explore essential details about them. It provides information such as release year, genre, cast, and summaries in a simple, easy-to-read format. The site is designed for straightforward browsing without unnecessary clutter. Users can type in a movie title to find relevant results or discover related films through connected data. Its focus is on delivering clear movie information in an organized and accessible way.",
     image: "/banner/search4movies.png",
     technologies: ["React", "Next.js", "TMDB API", "Tailwind", "Javascript"],
-    category: "Web Application",
+    category: "Web App",
     year: "2024",
     status: "completed",
     githubUrl: "https://github.com/Jasmyre/search4movies",
@@ -118,5 +118,32 @@ export const projects: Project[] = [
       seo: 100,
     },
     highlights: ["Specialized design vibe"],
+  },
+  {
+    id: "5",
+    title: "Simple Notepad App",
+    description:
+      "A lightweight notepad built with Next.js and TypeScript that saves notes using browser local storage.",
+    image: "/banner/notepad.png",
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Local Storage"],
+    category: "Web App",
+    year: "2025",
+    status: "completed",
+    githubUrl: "https://github.com/jazmyre/notepad-app",
+    liveUrl: "https://notepad-tau.vercel.app",
+    stats: {
+      total: 100,
+      users: 50,
+      performance: 95,
+      accessibility: 90,
+      codeQuality: 92,
+      seo: 88,
+    },
+    highlights: [
+      "Fast client-side CRUD",
+      "Uses browser local storage",
+      "Clean UI with Tailwind CSS",
+      "Zero backend required",
+    ],
   },
 ];

@@ -20,7 +20,7 @@ export default function ProjectsPage() {
       {/* CTA Section */}
       <section className="py-16 md:py-32">
         <div className="mx-auto max-w-7xl px-6">
-          <Card className="border-primary/20 bg-gradient-to-br from-primary/5 to-secondary/5 backdrop-blur-sm">
+          <Card className="border-primary/20 bg-linear-to-br from-primary/5 to-secondary/5 backdrop-blur-sm">
             <CardContent className="space-y-6 p-8 text-center md:p-16">
               <div className="space-y-4">
                 <h2 className="text-balance font-bold text-3xl text-foreground tracking-tight md:text-4xl">
