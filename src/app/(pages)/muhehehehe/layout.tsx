@@ -8,43 +8,42 @@ import { env } from "@/env";
 import { TRPCReactProvider } from "@/trpc/react";
 
 export const metadata: Metadata = {
-  title: "AniXplorer | Jasmyre Andrei Lanuza",
+  title: "Muhehehehe",
   description:
-    "AniXplorer is an anime discovery website built with Next.js, powered by the Jikan API. Created by Full-Stack Web Developer Jasmyre Andrei Lanuza.",
+    "Muhehehehe",
   icons: [{ rel: "icon", url: "/favicon.ico" }],
-  category: "Anime Website",
+  category: "Interactive Story",
   creator: "Jasmyre Andrei Lanuza",
   generator: "Next.js",
   keywords: [
-    "anixplorer",
-    "anime explorer",
-    "anime website",
-    "anime discovery",
-    "anime database",
-    "jikan api",
-    "myanimelist api",
+    "muhehehehe",
+    "interactive page",
+    "choice based story",
+    "valentine page",
+    "love letter app",
+    "nextjs interactive app",
+    "tailwind css page",
+    "romantic web app",
     "jasmyre",
     "jasmyre andrei lanuza",
     "andrei lanuza",
-    "anime portfolio project",
+    "portfolio project",
     "cs student portfolio",
-    "nextjs anime website",
-    "anime search app",
-    "anime catalog website",
+    "nextjs project",
   ],
   openGraph: {
     type: "website",
-    url: "https://jasmyre.vercel.app/anixplorer",
+    url: "https://jasmyre.vercel.app/muhehehehe",
     description:
-      "Explore anime with AniXplorer — an anime discovery platform powered by the Jikan API. Built by Full-Stack Web Developer Jasmyre Andrei Lanuza.",
-    siteName: "AniXplorer",
+      "Muhehehehe",
+    siteName: "Muhehehehe",
     images: ["/og-image.png"],
-    title: "AniXplorer | Anime Discovery Website",
+    title: "Muhehehehe",
     countryName: "Philippines",
   },
   robots: {
-    index: true,
-    follow: true,
+    index: false,
+    follow: false,
   },
   other: {
     "google-site-verification": env.GOOGLE_SITE_VERIFICATION,
@@ -56,7 +55,7 @@ const geist = Geist({
   variable: "--font-geist-sans",
 });
 
-export default function PortfolioLayout({
+export default function MuheheheheLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
