@@ -39,7 +39,7 @@ const IMAGE_PATHS: Record<string, string> = {
   no_6: "/assets/pls.jpg",
   no_7: "/assets/wala_na.jpg",
   no_8: "/assets/cat_1.jpg",
-  no_9: "/assets/chill_cat.jpg",
+  no_9: "/assets/flowers.jpg",
   accepted_intro: "/assets/blushing_love_cat.jpg",
   plans: "/assets/plan.jpg",
   ending: "/assets/genuine.jpg",
@@ -268,6 +268,23 @@ function ChoiceButtons({
 export default function MuhehehehePage() {
   const [currentSlideId, setCurrentSlideId] = useState<string>(INTRO_SLIDE_ID);
   const [isClearing, setIsClearing] = useState<boolean>(false);
+
+  useEffect(() => {
+    const allImagePaths = Array.from(new Set(Object.values(IMAGE_PATHS)));
+    const preloaders: HTMLImageElement[] = [];
+
+    for (const imagePath of allImagePaths) {
+      const img = new window.Image();
+      img.src = imagePath;
+      preloaders.push(img);
+    }
+
+    return () => {
+      for (const img of preloaders) {
+        img.src = "";
+      }
+    };
+  }, []);
 
   const slide = useMemo(
     () =>
