@@ -1,5 +1,6 @@
 import "@/styles/anixplorer/index.css";
 
+import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 
@@ -9,8 +10,7 @@ import { TRPCReactProvider } from "@/trpc/react";
 
 export const metadata: Metadata = {
   title: "Muhehehehe",
-  description:
-    "Muhehehehe",
+  description: "Muhehehehe",
   icons: [{ rel: "icon", url: "/favicon.ico" }],
   category: "Interactive Story",
   creator: "Jasmyre Andrei Lanuza",
@@ -34,8 +34,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: "https://jasmyre.vercel.app/muhehehehe",
-    description:
-      "Muhehehehe",
+    description: "Muhehehehe",
     siteName: "Muhehehehe",
     images: ["/og-image.png"],
     title: "Muhehehehe",
@@ -71,6 +70,7 @@ export default function MuheheheheLayout({
             {children}
           </ThemeProvider>
         </TRPCReactProvider>
+        <Analytics />
       </body>
     </html>
   );
