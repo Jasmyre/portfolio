@@ -34,19 +34,19 @@ export default function ContentSection() {
         <div className="grid gap-8 md:gap-12 lg:grid-cols-2 lg:gap-16">
           {/* Image Section */}
           <div className="relative flex items-center">
-            <div className="relative aspect-square w-full overflow-hidden rounded-2xl bg-gradient-to-b from-zinc-300 to-transparent p-px dark:from-zinc-700">
+            <div className="relative aspect-square w-full overflow-hidden rounded-2xl bg-linear-to-b from-zinc-300 to-transparent p-px dark:from-zinc-700">
               <Image
                 alt="Jasmyre Lanuza - Web Developer"
                 className="hidden h-full w-full rounded-[15px] object-cover dark:block"
                 height={500}
-                src="/dev.png"
+                src="/jazmyre.png"
                 width={500}
               />
               <Image
                 alt="Jasmyre Lanuza - Web Developer"
                 className="h-full w-full rounded-[15px] object-cover shadow-lg dark:hidden"
                 height={500}
-                src="/dev.png"
+                src="/jazmyre.png"
                 width={500}
               />
             </div>
