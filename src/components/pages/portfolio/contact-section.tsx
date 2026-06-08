@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail, MapPin, Phone, Twitter } from "lucide-react";
+import { Facebook, Github, Linkedin, Mail, MapPin, Phone } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -6,9 +6,17 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
 const socialLinks = [
-  { icon: Github, href: "#", label: "GitHub" },
-  { icon: Linkedin, href: "#", label: "LinkedIn" },
-  { icon: Twitter, href: "#", label: "Twitter" },
+  {
+    icon: Facebook,
+    href: "https://www.facebook.com/andrei.lanuza.25",
+    label: "Facebook",
+  },
+  { icon: Github, href: "https://github.com/Jasmyre/", label: "GitHub" },
+  {
+    icon: Linkedin,
+    href: "https://www.linkedin.com/in/jasmyre-andrei-lanuza-092a972a1/",
+    label: "LinkedIn",
+  },
 ];
 
 export function ContactSection() {
@@ -31,7 +39,7 @@ export function ContactSection() {
 
             <div className="space-y-6">
               <div className="group flex items-center space-x-4">
-                <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg bg-primary/10 transition-colors group-hover:bg-primary/20">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 transition-colors group-hover:bg-primary/20">
                   <Mail className="h-5 w-5 text-primary" />
                 </div>
                 <div>
@@ -43,7 +51,7 @@ export function ContactSection() {
               </div>
 
               <div className="group flex items-center space-x-4">
-                <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg bg-primary/10 transition-colors group-hover:bg-primary/20">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 transition-colors group-hover:bg-primary/20">
                   <MapPin className="h-5 w-5 text-primary" />
                 </div>
                 <div>
@@ -55,7 +63,7 @@ export function ContactSection() {
               </div>
 
               <div className="group flex items-center space-x-4">
-                <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg bg-primary/10 transition-colors group-hover:bg-primary/20">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary/10 transition-colors group-hover:bg-primary/20">
                   <Phone className="h-5 w-5 text-primary" />
                 </div>
                 <div>
@@ -76,6 +84,8 @@ export function ContactSection() {
                     <Link
                       className="flex h-12 w-12 items-center justify-center rounded-lg border border-border bg-card transition-all duration-200 hover:scale-105 hover:bg-primary hover:text-primary-foreground"
                       href={social.href}
+                      rel="noopener noreferrer"
+                      target="_blank"
                     >
                       <social.icon className="h-5 w-5" />
                       <span className="sr-only">{social.label}</span>
@@ -104,6 +114,7 @@ export function ContactSection() {
                       </label>
                       <Input
                         className="border-border bg-background focus:border-primary focus:ring-primary/20"
+                        disabled
                         id="firstName"
                         placeholder="John"
                       />
@@ -117,6 +128,7 @@ export function ContactSection() {
                       </label>
                       <Input
                         className="border-border bg-background focus:border-primary focus:ring-primary/20"
+                        disabled
                         id="lastName"
                         placeholder="Doe"
                       />
@@ -132,6 +144,7 @@ export function ContactSection() {
                     </label>
                     <Input
                       className="border-border bg-background focus:border-primary focus:ring-primary/20"
+                      disabled
                       id="email"
                       placeholder="john@example.com"
                       type="email"
@@ -147,6 +160,7 @@ export function ContactSection() {
                     </label>
                     <Input
                       className="border-border bg-background focus:border-primary focus:ring-primary/20"
+                      disabled
                       id="subject"
                       placeholder="Let's discuss your project"
                     />
@@ -161,6 +175,7 @@ export function ContactSection() {
                     </label>
                     <Textarea
                       className="resize-none border-border bg-background focus:border-primary focus:ring-primary/20"
+                      disabled
                       id="message"
                       placeholder="Tell me about your project, timeline, and any specific requirements..."
                       rows={5}
@@ -169,10 +184,15 @@ export function ContactSection() {
 
                   <Button
                     className="w-full cursor-pointer bg-primary py-3 font-medium text-base text-primary-foreground hover:bg-primary/90"
+                    disabled
                     type="submit"
                   >
                     Send Message
                   </Button>
+                  <p className="mt-4 text-muted-foreground text-sm">
+                    Currently, the contact form is disabled. Please reach out
+                    via email or social media links provided.
+                  </p>
                 </form>
               </CardContent>
             </Card>

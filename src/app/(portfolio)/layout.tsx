@@ -1,7 +1,7 @@
 import "@/styles/globals.css";
 
 import { Analytics } from "@vercel/analytics/next";
-import { Briefcase, Home, Mail, Pickaxe, User } from "lucide-react";
+import { Briefcase, Home, Mail, User } from "lucide-react";
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
 import { type NavItem, NavigationBar } from "@/components/navigation-bar";
@@ -119,11 +119,11 @@ function getNavItems() {
       href: "/#about",
       icon: <User className="h-4 w-4" />,
     },
-    {
-      name: "Services",
-      href: "/#services",
-      icon: <Pickaxe className="h-4 w-4" />,
-    },
+    // {
+    //   name: "Services",
+    //   href: "/#services",
+    //   icon: <Pickaxe className="h-4 w-4" />,
+    // },
     {
       name: "Projects",
       href: "/#portfolio",
