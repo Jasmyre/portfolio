@@ -6,9 +6,9 @@ import { Badge } from "@/components/ui/badge";
 
 export default function ContentSection() {
   const approach = [
-    { icon: Code2, text: "Clean, maintainable code" },
-    { icon: Zap, text: "Fast and responsive" },
-    { icon: Users, text: "User-focused design" },
+    { icon: Code2, text: "Built and deployed real-world projects" },
+    { icon: Zap, text: "Strong foundation in modern web technologies" },
+    { icon: Users, text: "Continuous learner and problem solver" },
   ];
 
   const skills = [
@@ -16,8 +16,10 @@ export default function ContentSection() {
     "Next.js",
     "TypeScript",
     "Tailwind CSS",
-    "Full-Stack",
-    "Web Design",
+    "Prisma",
+    "PostgresSQL",
+    "Rest APIs",
+    "Git & Github",
   ];
 
   return (
@@ -58,20 +60,24 @@ export default function ContentSection() {
             <div className="space-y-4">
               <div className="flex flex-wrap items-center gap-2">
                 <span className="font-medium text-muted-foreground text-sm">
-                  Full-Stack Developer
+                  Aspiring Full-Stack Developer
                 </span>
                 <Badge className="px-2 py-1 text-xs" variant="outline">
                   Philippines
                 </Badge>
               </div>
               <p className="font-semibold text-foreground text-lg leading-snug">
-                I build fast, clean websites with modern technologies that work
-                beautifully for users.
+                I develop modern web applications and continuously improve my
+                skills through real-world projects, focusing on performance,
+                usability, and maintainable code.
               </p>
               <p className="text-base text-muted-foreground leading-relaxed">
-                Specializing in React, Next.js, and full-stack development. I
-                focus on creating intuitive interfaces and solid backend
-                solutions without unnecessary complexity.
+                I'm a BSIT student at Sumulong College of Arts and Sciences with
+                a passion for web development. I enjoy building projects that
+                solve real problems while strengthening my skills in React,
+                Next.js, TypeScript, databases, and API integration. Through
+                continuous learning and hands-on development, I aim to create
+                impactful web applications and grow as a developer.
               </p>
             </div>
 
