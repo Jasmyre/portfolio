@@ -6,8 +6,14 @@ import { Badge } from "@/components/ui/badge";
 
 export default function ContentSection() {
   const approach = [
-    { icon: Code2, text: "Built and deployed real-world projects" },
-    { icon: Zap, text: "Strong foundation in modern web technologies" },
+    {
+      icon: Code2,
+      text: "Built and deployed real-world web and mobile projects",
+    },
+    {
+      icon: Zap,
+      text: "Strong foundation in modern responsive design and frameworks",
+    },
     { icon: Users, text: "Continuous learner and problem solver" },
   ];
 
@@ -60,24 +66,20 @@ export default function ContentSection() {
             <div className="space-y-4">
               <div className="flex flex-wrap items-center gap-2">
                 <span className="font-medium text-muted-foreground text-sm">
-                  Aspiring Full-Stack Developer
+                  Web & Mobile Developer
                 </span>
                 <Badge className="px-2 py-1 text-xs" variant="outline">
                   Philippines
                 </Badge>
               </div>
               <p className="font-semibold text-foreground text-lg leading-snug">
-                I develop modern web applications and continuously improve my
-                skills through real-world projects, focusing on performance,
-                usability, and maintainable code.
+                I design and develop user-friendly websites, modern web apps,
+                and fluid mobile applications, focusing on high performance,
+                clean UI, and maintainable codebases.
               </p>
               <p className="text-base text-muted-foreground leading-relaxed">
-                I'm a BSIT student at Sumulong College of Arts and Sciences with
-                a passion for web development. I enjoy building projects that
-                solve real problems while strengthening my skills in React,
-                Next.js, TypeScript, databases, and API integration. Through
-                continuous learning and hands-on development, I aim to create
-                impactful web applications and grow as a developer.
+                I aim to create seamless digital experiences across both desktop
+                and mobile platforms.
               </p>
             </div>
 
