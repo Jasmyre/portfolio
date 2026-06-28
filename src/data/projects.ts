@@ -22,6 +22,41 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    id: "6",
+    title: "Quizlet",
+    description:
+      "Quizlet is an AI-powered study platform designed to transform how learners master new concepts through intelligent, interactive activities. The platform features smart adaptive flashcards, AI-generated multiple-choice quizzes, and dynamic 'arrange component' exercises that actively reinforce key topics. Content is organized into progressive study sets—starting with fundamental basics and advancing toward complex, specialized subjects. By utilizing AI to customize the learning pace, Quizlet moves beyond passive reading to deliver highly personalized, practical retrieval practice for students at all levels.",
+    image: "/banner/quizlet.png",
+    technologies: [
+      "React",
+      "Next.js",
+      "Typescript",
+      "Neon.tech",
+      "Prisma",
+      "OAuth",
+      "Tailwind",
+      "Shadcn ui",
+    ],
+    category: "Web App",
+    year: "2026",
+    status: "in-progress",
+    githubUrl: "https://github.com/Jasmyre/quizlet",
+    liveUrl: "https://jazmyre-quizlet.vercel.app",
+    stats: {
+      total: 91,
+      performance: 90,
+      accessibility: 97,
+      codeQuality: 100,
+      seo: 91,
+    },
+    highlights: [
+      "AI-Powered Adaptive Learning",
+      "Smart Progress & Weakness Tracking",
+      "Collaborative Study Groups",
+      "Cloud-Synced Personalized Accounts",
+    ],
+  },
+  {
     id: "1",
     title: "ICTQuest",
     description:
